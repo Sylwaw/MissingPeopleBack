@@ -1,0 +1,15 @@
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Infrastructure\bin\Debug\net5.0\MissingPeople.Infrastructure.deps.json
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Infrastructure\bin\Debug\net5.0\MissingPeople.Infrastructure.dll
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Infrastructure\bin\Debug\net5.0\ref\MissingPeople.Infrastructure.dll
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Infrastructure\bin\Debug\net5.0\MissingPeople.Infrastructure.pdb
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Infrastructure\bin\Debug\net5.0\MissingPeople.Core.dll
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Infrastructure\bin\Debug\net5.0\MissingPeople.Core.pdb
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Infrastructure\obj\Debug\net5.0\MissingPeople.Infrastructure.csprojAssemblyReference.cache
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Infrastructure\obj\Debug\net5.0\MissingPeople.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Infrastructure\obj\Debug\net5.0\MissingPeople.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Infrastructure\obj\Debug\net5.0\MissingPeople.Infrastructure.AssemblyInfo.cs
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Infrastructure\obj\Debug\net5.0\MissingPeople.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Infrastructure\obj\Debug\net5.0\MissingPeople.Infrastructure.csproj.CopyComplete
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Infrastructure\obj\Debug\net5.0\MissingPeople.Infrastructure.dll
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Infrastructure\obj\Debug\net5.0\ref\MissingPeople.Infrastructure.dll
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Infrastructure\obj\Debug\net5.0\MissingPeople.Infrastructure.pdb

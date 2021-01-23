@@ -1,0 +1,12 @@
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Core\bin\Debug\net5.0\MissingPeople.Core.deps.json
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Core\bin\Debug\net5.0\MissingPeople.Core.dll
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Core\bin\Debug\net5.0\ref\MissingPeople.Core.dll
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Core\bin\Debug\net5.0\MissingPeople.Core.pdb
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.csprojAssemblyReference.cache
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.AssemblyInfoInputs.cache
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.AssemblyInfo.cs
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.csproj.CoreCompileInputs.cache
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.dll
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\ref\MissingPeople.Core.dll
+C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.pdb
