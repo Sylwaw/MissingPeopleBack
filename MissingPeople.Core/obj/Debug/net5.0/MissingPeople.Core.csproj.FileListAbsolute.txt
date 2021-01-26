@@ -10,3 +10,15 @@ C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeopl
 C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.dll
 C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\ref\MissingPeople.Core.dll
 C:\Users\zieni\source\repos\Sylwia\Inżynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.pdb
+c:\Users\zieni\source\repos\Sylwia\Inzynierka\MissingPeopleBackend\MissingPeople.Core\bin\Debug\net5.0\MissingPeople.Core.deps.json
+c:\Users\zieni\source\repos\Sylwia\Inzynierka\MissingPeopleBackend\MissingPeople.Core\bin\Debug\net5.0\MissingPeople.Core.dll
+c:\Users\zieni\source\repos\Sylwia\Inzynierka\MissingPeopleBackend\MissingPeople.Core\bin\Debug\net5.0\ref\MissingPeople.Core.dll
+c:\Users\zieni\source\repos\Sylwia\Inzynierka\MissingPeopleBackend\MissingPeople.Core\bin\Debug\net5.0\MissingPeople.Core.pdb
+c:\Users\zieni\source\repos\Sylwia\Inzynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.csprojAssemblyReference.cache
+c:\Users\zieni\source\repos\Sylwia\Inzynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\zieni\source\repos\Sylwia\Inzynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.AssemblyInfoInputs.cache
+c:\Users\zieni\source\repos\Sylwia\Inzynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.AssemblyInfo.cs
+c:\Users\zieni\source\repos\Sylwia\Inzynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.csproj.CoreCompileInputs.cache
+c:\Users\zieni\source\repos\Sylwia\Inzynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.dll
+c:\Users\zieni\source\repos\Sylwia\Inzynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\ref\MissingPeople.Core.dll
+c:\Users\zieni\source\repos\Sylwia\Inzynierka\MissingPeopleBackend\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.pdb

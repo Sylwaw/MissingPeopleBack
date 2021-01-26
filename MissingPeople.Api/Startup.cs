@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MissingPeople.Api.Extensions;
+using MissingPeople.Core.Helpers.MapperProfile.Dictionaries;
 using MissingPeople.Infrastructure.Data;
 
 namespace MissingPeople.Api
@@ -31,6 +33,7 @@ namespace MissingPeople.Api
         {
             services.ServiceCollection();
             services.AddDbContext<MissingPeopleDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")), ServiceLifetime.Transient);
+            services.AddSingleton<IMapper>(_ => new MapperConfiguration((s) => ConfigureMapper(s)).CreateMapper());
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -59,6 +62,11 @@ namespace MissingPeople.Api
             {
                 endpoints.MapControllers();
             });
+        }
+
+        public void ConfigureMapper(IMapperConfigurationExpression cfg)
+        {
+            cfg.AddProfile<DictCityProfile>();
         }
     }
 }

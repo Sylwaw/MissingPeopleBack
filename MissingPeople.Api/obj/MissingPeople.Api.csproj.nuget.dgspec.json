@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Api\\MissingPeople.Api.csproj": {}
+    "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Api\\MissingPeople.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Api\\MissingPeople.Api.csproj": {
+    "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Api\\MissingPeople.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Api\\MissingPeople.Api.csproj",
+        "projectUniqueName": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Api\\MissingPeople.Api.csproj",
         "projectName": "MissingPeople.Api",
-        "projectPath": "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Api\\MissingPeople.Api.csproj",
+        "projectPath": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Api\\MissingPeople.Api.csproj",
         "packagesPath": "C:\\Users\\zieni\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Api\\obj\\",
+        "outputPath": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -31,8 +31,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj"
+              "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj": {
+                "projectPath": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj"
               }
             }
           }
@@ -84,14 +84,14 @@
         }
       }
     },
-    "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Core\\MissingPeople.Core.csproj": {
+    "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Core\\MissingPeople.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Core\\MissingPeople.Core.csproj",
+        "projectUniqueName": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Core\\MissingPeople.Core.csproj",
         "projectName": "MissingPeople.Core",
-        "projectPath": "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Core\\MissingPeople.Core.csproj",
+        "projectPath": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Core\\MissingPeople.Core.csproj",
         "packagesPath": "C:\\Users\\zieni\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Core\\obj\\",
+        "outputPath": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -126,6 +126,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[10.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [
@@ -147,14 +151,14 @@
         }
       }
     },
-    "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj": {
+    "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj",
+        "projectUniqueName": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj",
         "projectName": "MissingPeople.Infrastructure",
-        "projectPath": "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj",
+        "projectPath": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\zieni\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\obj\\",
+        "outputPath": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -174,8 +178,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Core\\MissingPeople.Core.csproj": {
-                "projectPath": "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Core\\MissingPeople.Core.csproj"
+              "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Core\\MissingPeople.Core.csproj": {
+                "projectPath": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Core\\MissingPeople.Core.csproj"
               }
             }
           }

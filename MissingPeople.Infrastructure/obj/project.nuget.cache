@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ohQGd6XT9lJv8s6x4ghFf8ICSRcpV8S9tLGhh541CTu+OvQOChaKKbpas0wGybCrwEB9splb8afog9/FZwzwjA==",
+  "dgSpecHash": "9m9AMP9z7C1artr9pxkpC1H+4Jd8evkCK+0Tc82YQXMpMULIOEb+wAvoPjw5XO2U9/xH1eqsmOwqi6ADdYPu6A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj",
+  "projectFilePath": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zieni\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\zieni\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

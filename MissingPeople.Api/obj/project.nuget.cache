@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fp8Ih96YyrtxK1cXb+m+97qRqqiWnc41/nxsebtTCSpq4UVkaboOV8ITdHE+xxmIJ6tupWPl6wPzofS47IGITA==",
+  "dgSpecHash": "w4wIZA+i2pTiJDaeY+9jFXm87X4KCJpNwIGuO31V0G5Oy625VvBzpzw17fUqjpl2tDNKF8S0JvFj+n30pDN8JQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\zieni\\source\\repos\\Sylwia\\Inżynierka\\MissingPeopleBackend\\MissingPeople.Api\\MissingPeople.Api.csproj",
+  "projectFilePath": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Api\\MissingPeople.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zieni\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\zieni\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
