@@ -8,6 +8,7 @@ using MissingPeople.Core.Entities.Peoples;
 using MissingPeople.Core.Interfaces.Repository;
 using MissingPeople.Core.Interfaces;
 using MissingPeople.Core.Interfaces.Peoples;
+using static MissingPeople.Core.Dtos.Peoples.DisplayPersonDetailDto;
 
 namespace MissingPeople.Core.Services.Peoples
 {
@@ -24,7 +25,7 @@ namespace MissingPeople.Core.Services.Peoples
             this.mapper = mapper;
         }
 
-        public async Task<DisplayPeopleDetailDto> GetPersonByIdAsync(int id)
+        public async Task<DisplayPersonDetailDto> GetPersonByIdAsync(int id)
         {
             var entity = await repositoryPerson.GetByFunc(s => s.Id == id)
                 .Include(s => s.DangerOfLife)
@@ -38,14 +39,49 @@ namespace MissingPeople.Core.Services.Peoples
                     .ThenInclude(s => s.DictFeature)
                 .Include(s => s.Features)
                     .ThenInclude(s => s.FeaturesDetails)
-                        .ThenInclude(s => s.DetailFeature)
+                        .ThenInclude(s => s.DictDetailFeature)
                 .FirstOrDefaultAsync();
 
+            var person = new DisplayPersonDetailDto
+            {
+                City = entity.LastLocation.City.Name,
+                Name = entity.Name,
+                SecondName = entity.SecondName,
+                Surname = entity.Surname,
+                Detail = new PersonDetailDto(entity.Detail),
+                DangerOfLife = entity.DangerOfLife.IsAtRisk,
+                Description = entity.Description.Description,
+                Id = entity.Id,
+                Pictures = entity.Pictures.Select(s => pictureService.GetPictureBase64ByName(s.Name))
+            };
 
-            return null;
+            foreach (var feature in entity.Features)
+            {
+                var personFeature = new PersonFeatureDto
+                {
+                    Id = feature.DictFeatureId,
+                    Name = feature.DictFeature.Name
+                };
+
+                foreach (var featureDetail in feature.FeaturesDetails)
+                {
+                    var personFeatureDetail = new PersonFeatureDetailDto
+                    {
+                        Id = featureDetail.DictDetailFeatureId,
+                        Name = featureDetail.DictDetailFeature.Name,
+                        Description = featureDetail.Description
+                    };
+                    personFeature.PersonFeatureDetails.Add(personFeatureDetail);
+                }
+
+
+                person.PersonFeatures.Add(personFeature);
+            }
+
+            return person;
         }
 
-        public async Task<IEnumerable<DisplayPeopleDto>> GetPersonsAsync()
+        public async Task<IEnumerable<DisplayPersonDto>> GetPersonsAsync()
         {
             var entities = await repositoryPerson.GetAll()
                 .Include(s => s.LastLocation)
@@ -53,12 +89,13 @@ namespace MissingPeople.Core.Services.Peoples
                 .Include(s => s.Pictures.Take(1))
                 .ToListAsync();
 
-            ICollection<DisplayPeopleDto> models = new List<DisplayPeopleDto>();
+            ICollection<DisplayPersonDto> models = new List<DisplayPersonDto>();
 
             foreach (var entity in entities)
             {
-                var person = new DisplayPeopleDto
+                var person = new DisplayPersonDto
                 {
+                    Id = entity.Id,
                     City = entity.LastLocation.City.Name,
                     Name = entity.Name,
                     Surname = entity.Surname,

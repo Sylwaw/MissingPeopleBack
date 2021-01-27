@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {
+    ".NETCoreApp,Version=v5.0": {
       "AutoMapper/10.1.1": {
         "type": "package",
         "dependencies": {
@@ -181,6 +181,33 @@
           "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {}
         }
       },
+      "Microsoft.NETCore.Platforms/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/_._": {}
+        }
+      },
+      "Microsoft.Win32.SystemEvents/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "5.0.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
       "Npgsql/5.0.2": {
         "type": "package",
         "dependencies": {
@@ -235,6 +262,28 @@
           "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {}
         }
       },
+      "System.Drawing.Common/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "5.0.0"
+        },
+        "compile": {
+          "ref/netcoreapp3.0/System.Drawing.Common.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.Drawing.Common.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
       "System.Reflection.Emit/4.7.0": {
         "type": "package",
         "compile": {
@@ -258,7 +307,8 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "AutoMapper": "10.1.1",
-          "Microsoft.EntityFrameworkCore": "5.0.0"
+          "Microsoft.EntityFrameworkCore": "5.0.0",
+          "System.Drawing.Common": "5.0.0"
         },
         "compile": {
           "bin/placeholder/MissingPeople.Core.dll": {}
@@ -601,6 +651,52 @@
         "version.txt"
       ]
     },
+    "Microsoft.NETCore.Platforms/5.0.0": {
+      "sha512": "VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==",
+      "type": "package",
+      "path": "microsoft.netcore.platforms/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netstandard1.0/_._",
+        "microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+        "microsoft.netcore.platforms.nuspec",
+        "runtime.json",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "Microsoft.Win32.SystemEvents/5.0.0": {
+      "sha512": "Bh6blKG8VAKvXiLe2L+sEsn62nc1Ij34MrNxepD2OCrS5cpCwQa9MeLyhVQPQ/R4Wlzwuy6wMK8hLb11QPDRsQ==",
+      "type": "package",
+      "path": "microsoft.win32.systemevents/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Win32.SystemEvents.dll",
+        "lib/net461/Microsoft.Win32.SystemEvents.xml",
+        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
+        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.xml",
+        "microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+        "microsoft.win32.systemevents.nuspec",
+        "ref/net461/Microsoft.Win32.SystemEvents.dll",
+        "ref/net461/Microsoft.Win32.SystemEvents.xml",
+        "ref/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
+        "ref/netstandard2.0/Microsoft.Win32.SystemEvents.xml",
+        "runtimes/win/lib/netcoreapp2.0/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/netcoreapp2.0/Microsoft.Win32.SystemEvents.xml",
+        "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "Npgsql/5.0.2": {
       "sha512": "bqsG+0t6+c7nfpunu08HkjeRZCI2g8EbXNtWUHsnFlDzjx0zsLkvzfByiHuYo9a74CMKR9RmxRu7HiPGCE/EvQ==",
       "type": "package",
@@ -778,6 +874,48 @@
         "version.txt"
       ]
     },
+    "System.Drawing.Common/5.0.0": {
+      "sha512": "SztFwAnpfKC8+sEKXAFxCBWhKQaEd97EiOL7oZJZP56zbqnLpmxACWA8aGseaUExciuEAUuR9dY8f7HkTRAdnw==",
+      "type": "package",
+      "path": "system.drawing.common/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net461/System.Drawing.Common.dll",
+        "lib/netcoreapp3.0/System.Drawing.Common.dll",
+        "lib/netcoreapp3.0/System.Drawing.Common.xml",
+        "lib/netstandard2.0/System.Drawing.Common.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net461/System.Drawing.Common.dll",
+        "ref/netcoreapp3.0/System.Drawing.Common.dll",
+        "ref/netcoreapp3.0/System.Drawing.Common.xml",
+        "ref/netstandard2.0/System.Drawing.Common.dll",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/unix/lib/netcoreapp2.0/System.Drawing.Common.dll",
+        "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll",
+        "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.xml",
+        "runtimes/win/lib/netcoreapp2.0/System.Drawing.Common.dll",
+        "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll",
+        "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.xml",
+        "system.drawing.common.5.0.0.nupkg.sha512",
+        "system.drawing.common.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Reflection.Emit/4.7.0": {
       "sha512": "VR4kk8XLKebQ4MZuKuIni/7oh+QGFmZW3qORd1GvBq/8026OpW501SzT/oypwiQl4TvT8ErnReh/NzY9u+C6wQ==",
       "type": "package",
@@ -864,30 +1002,30 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net5.0": [
+    ".NETCoreApp,Version=v5.0": [
       "Microsoft.EntityFrameworkCore >= 5.0.2",
       "MissingPeople.Core >= 1.0.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 5.0.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zieni\\.nuget\\packages\\": {},
+    "C:\\Users\\ziend\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj",
       "projectName": "MissingPeople.Infrastructure",
-      "projectPath": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\zieni\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\ziend\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\zieni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ziend\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -899,10 +1037,9 @@
       },
       "frameworks": {
         "net5.0": {
-          "targetAlias": "net5.0",
           "projectReferences": {
-            "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Core\\MissingPeople.Core.csproj": {
-              "projectPath": "c:\\Users\\zieni\\source\\repos\\Sylwia\\Inzynierka\\MissingPeopleBackend\\MissingPeople.Core\\MissingPeople.Core.csproj"
+            "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj": {
+              "projectPath": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj"
             }
           }
         }
@@ -915,7 +1052,6 @@
     },
     "frameworks": {
       "net5.0": {
-        "targetAlias": "net5.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -926,22 +1062,7 @@
             "version": "[5.0.2, )"
           }
         },
-        "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
-        ],
-        "assetTargetFallback": true,
-        "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

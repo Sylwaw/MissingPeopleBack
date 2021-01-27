@@ -11,7 +11,7 @@ namespace MissingPeople.Api.Extensions
     public static class ServiceExtensions
     {
         public static void ServiceCollection(this IServiceCollection service) {
-            service.AddSingleton(typeof(IRepositoryBase<>),typeof(RepositoryBase<>));
+            service.AddScoped(typeof(IRepositoryBase<>),typeof(RepositoryBase<>));
             service.AddScoped<IPersonService,PersonService>();
             service.AddScoped<IPictureService,PictureService>();
         }

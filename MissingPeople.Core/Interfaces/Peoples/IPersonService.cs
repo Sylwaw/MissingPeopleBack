@@ -6,7 +6,7 @@ namespace MissingPeople.Core.Interfaces.Peoples
 {
     public interface IPersonService
     {
-        Task<DisplayPeopleDetailDto> GetPersonByIdAsync(int id);
-        Task<IEnumerable<DisplayPeopleDto>> GetPersonsAsync();
+        Task<DisplayPersonDetailDto> GetPersonByIdAsync(int id);
+        Task<IEnumerable<DisplayPersonDto>> GetPersonsAsync();
     }
 }

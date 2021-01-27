@@ -15,6 +15,6 @@ namespace MissingPeople.Core.Entities.Peoples.Features
         public int DictFeatureId { get; set; }
         public DictFeature DictFeature { get; set; }
 
-        public ICollection<DictDetailFeature> FeaturesDetails {get;set;}
+        public ICollection<DetailFeature> FeaturesDetails {get;set;}
     }
 }
