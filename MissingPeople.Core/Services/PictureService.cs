@@ -14,5 +14,7 @@ namespace MissingPeople.Core.Services
             return picture.ImageToBase64();
         }
 
+        //Picture service 1
+
     }
 }

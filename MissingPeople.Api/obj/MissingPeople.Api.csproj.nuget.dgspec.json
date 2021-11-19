@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Api\\MissingPeople.Api.csproj": {}
+    "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Api\\MissingPeople.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Api\\MissingPeople.Api.csproj": {
+    "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Api\\MissingPeople.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Api\\MissingPeople.Api.csproj",
+        "projectUniqueName": "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Api\\MissingPeople.Api.csproj",
         "projectName": "MissingPeople.Api",
-        "projectPath": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Api\\MissingPeople.Api.csproj",
-        "packagesPath": "C:\\Users\\ziend\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Api\\obj\\",
+        "projectPath": "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Api\\MissingPeople.Api.csproj",
+        "packagesPath": "C:\\Users\\Sylwia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ziend\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sylwia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,9 +29,10 @@
         },
         "frameworks": {
           "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj"
+              "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj"
               }
             }
           }
@@ -44,10 +45,15 @@
       },
       "frameworks": {
         "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[8.1.0, )"
+            },
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -60,29 +66,42 @@
               "version": "[5.6.3, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win7-x86": {
-          "#import": []
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj": {
+    "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj",
         "projectName": "MissingPeople.Core",
-        "projectPath": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj",
-        "packagesPath": "C:\\Users\\ziend\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Core\\obj\\",
+        "projectPath": "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj",
+        "packagesPath": "C:\\Users\\Sylwia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ziend\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sylwia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -94,6 +113,7 @@
         },
         "frameworks": {
           "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -105,6 +125,7 @@
       },
       "frameworks": {
         "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -119,24 +140,39 @@
               "version": "[5.0.0, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj": {
+    "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj",
         "projectName": "MissingPeople.Infrastructure",
-        "projectPath": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\ziend\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Infrastructure\\MissingPeople.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Sylwia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ziend\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sylwia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -148,9 +184,10 @@
         },
         "frameworks": {
           "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj": {
-                "projectPath": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj"
+              "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj": {
+                "projectPath": "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj"
               }
             }
           }
@@ -163,6 +200,7 @@
       },
       "frameworks": {
         "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -173,7 +211,22 @@
               "version": "[5.0.2, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

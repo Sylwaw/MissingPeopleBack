@@ -8,16 +8,13 @@ namespace MissingPeople.Core.Entities.Peoples
         public int HeightTo { get; set; }
         public int WeightFrom { get; set; }
         public int WeightTo { get; set; }
-        public ColorEye ColorEyes { get; set; }
+        public string ClothesDetails { get; set; }
+        public string OtherDetails { get; set; }
 
         [Required]
         public int PersonId { get; set; }
         public Person Person { get; set; }
 
 
-        public enum ColorEye
-        {
-
-        }
     }
 }

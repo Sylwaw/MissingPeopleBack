@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v5.0": {
+    "net5.0": {
       "AutoMapper/10.1.1": {
         "type": "package",
         "dependencies": {
@@ -829,30 +829,30 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v5.0": [
+    "net5.0": [
       "AutoMapper >= 10.1.1",
       "Microsoft.EntityFrameworkCore >= 5.0.0",
       "System.Drawing.Common >= 5.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ziend\\.nuget\\packages\\": {},
+    "C:\\Users\\Sylwia\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj",
+      "projectUniqueName": "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj",
       "projectName": "MissingPeople.Core",
-      "projectPath": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj",
-      "packagesPath": "C:\\Users\\ziend\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ziend\\Desktop\\MissingPeople\\MissingPeopleBack\\MissingPeople.Core\\obj\\",
+      "projectPath": "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Core\\MissingPeople.Core.csproj",
+      "packagesPath": "C:\\Users\\Sylwia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Sylwia\\Desktop\\MOJE\\STUDIA\\MissingPeopleBack\\MissingPeople.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\ziend\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sylwia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -864,6 +864,7 @@
       },
       "frameworks": {
         "net5.0": {
+          "targetAlias": "net5.0",
           "projectReferences": {}
         }
       },
@@ -875,6 +876,7 @@
     },
     "frameworks": {
       "net5.0": {
+        "targetAlias": "net5.0",
         "dependencies": {
           "AutoMapper": {
             "target": "Package",
@@ -889,7 +891,22 @@
             "version": "[5.0.0, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
