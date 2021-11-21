@@ -9,5 +9,6 @@ namespace MissingPeople.Core.Entities.Peoples
         public Person Person { get; set; }
         public bool IsAtRisk { get; set; }
         public string Description { get; set; }
+
     }
 }

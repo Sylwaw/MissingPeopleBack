@@ -34,3 +34,6 @@ C:\Users\Sylwia\Desktop\MOJE\STUDIA\MissingPeopleBack\MissingPeople.Core\obj\Deb
 C:\Users\Sylwia\Desktop\MOJE\STUDIA\MissingPeopleBack\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.dll
 C:\Users\Sylwia\Desktop\MOJE\STUDIA\MissingPeopleBack\MissingPeople.Core\obj\Debug\net5.0\ref\MissingPeople.Core.dll
 C:\Users\Sylwia\Desktop\MOJE\STUDIA\MissingPeopleBack\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.pdb
+C:\Users\Sylwia\Desktop\MOJE\STUDIA\MissingPeopleBack\MissingPeople.Core\bin\Debug\net5.0\MissingPeople.Core.runtimeconfig.json
+C:\Users\Sylwia\Desktop\MOJE\STUDIA\MissingPeopleBack\MissingPeople.Core\bin\Debug\net5.0\MissingPeople.Core.runtimeconfig.dev.json
+C:\Users\Sylwia\Desktop\MOJE\STUDIA\MissingPeopleBack\MissingPeople.Core\obj\Debug\net5.0\MissingPeople.Core.genruntimeconfig.cache

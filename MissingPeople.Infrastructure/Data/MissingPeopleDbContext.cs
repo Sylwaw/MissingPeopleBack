@@ -3,14 +3,17 @@ using MissingPeople.Core.Entities.Dictionaries;
 using MissingPeople.Core.Entities.Peoples;
 using MissingPeople.Core.Entities.Peoples.Features;
 
+
 namespace MissingPeople.Infrastructure.Data
 {
     public class MissingPeopleDbContext : DbContext
     {
+        //domyœlny konstruktor
         public MissingPeopleDbContext(DbContextOptions<MissingPeopleDbContext> options) : base(options)
         {
         }
 
+        //wyszczególnienie wszystkich tabel do utworzenia w bazie (nazwa - l. mnoga od nazwy modelu)
         public DbSet<DictCity> DictCities { get; set; }
         public DbSet<Picture> Pictures { get; set; }
         public DbSet<DictDetailFeature> DictDetailFeatures { get; set; }

@@ -43,3 +43,6 @@ C:\Users\Sylwia\Desktop\MOJE\STUDIA\MissingPeopleBack\MissingPeople.Infrastructu
 C:\Users\Sylwia\Desktop\MOJE\STUDIA\MissingPeopleBack\MissingPeople.Infrastructure\obj\Debug\net5.0\MissingPeople.Infrastructure.dll
 C:\Users\Sylwia\Desktop\MOJE\STUDIA\MissingPeopleBack\MissingPeople.Infrastructure\obj\Debug\net5.0\ref\MissingPeople.Infrastructure.dll
 C:\Users\Sylwia\Desktop\MOJE\STUDIA\MissingPeopleBack\MissingPeople.Infrastructure\obj\Debug\net5.0\MissingPeople.Infrastructure.pdb
+C:\Users\Sylwia\Desktop\MOJE\STUDIA\MissingPeopleBack\MissingPeople.Infrastructure\bin\Debug\net5.0\MissingPeople.Infrastructure.runtimeconfig.json
+C:\Users\Sylwia\Desktop\MOJE\STUDIA\MissingPeopleBack\MissingPeople.Infrastructure\bin\Debug\net5.0\MissingPeople.Infrastructure.runtimeconfig.dev.json
+C:\Users\Sylwia\Desktop\MOJE\STUDIA\MissingPeopleBack\MissingPeople.Infrastructure\obj\Debug\net5.0\MissingPeople.Infrastructure.genruntimeconfig.cache
