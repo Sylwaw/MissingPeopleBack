@@ -1,4 +1,7 @@
 using System.ComponentModel.DataAnnotations;
+using MissingPeople.Core.Entities.Peoples.Features;
+
+
 
 namespace MissingPeople.Core.Entities.Dictionaries
 {
@@ -8,6 +11,7 @@ namespace MissingPeople.Core.Entities.Dictionaries
 
         [Required]
         public int DictFeatureId { get; set; }
-        public DictDetailFeature DetailFeature { get; set; }
+        public DetailFeature DetailFeature { get; set; }
+        
     }
 }

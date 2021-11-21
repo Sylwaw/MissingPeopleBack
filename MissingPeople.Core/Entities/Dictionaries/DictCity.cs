@@ -11,6 +11,8 @@ namespace MissingPeople.Core.Entities.Dictionaries
         public double CordinateY { get; set; }
         public double CordinateX { get; set; }
         public int IdentifierTeryt { get; set; }
+        public int ProvinceId { get; set; }
         public ICollection<LastLocation> LastLocations { get; set; }
+        public virtual DictProvince Provinces { get; set; }
     }
 }

@@ -9,5 +9,9 @@ namespace MissingPeople.Core.Entities.Peoples.Features
         public int DictDetailFeatureId { get; set; }
         public DictDetailFeature DictDetailFeature { get; set; }
         public string Description { get; set; }
+
+        public int FeatureID { get; set; }
+
+        public Feature Feature { get; set; }
     }
 }

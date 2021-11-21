@@ -30,15 +30,13 @@ namespace MissingPeople.Core.Services.Peoples
             var entity = await repositoryPerson.GetByFunc(s => s.Id == id)
                 .Include(s => s.DangerOfLife)
                 .Include(s => s.Pictures)
-                .Include(s => s.Description)
                 .Include(s => s.Detail)
                 .Include(s => s.LastLocation)
                     .ThenInclude(s => s.City)
-                .Include(s => s.Disappearance)
                 .Include(s => s.Features)
                     .ThenInclude(s => s.DictFeature)
                 .Include(s => s.Features)
-                    .ThenInclude(s => s.FeaturesDetails)
+                    .ThenInclude(s => s.DetailFeatures)
                         .ThenInclude(s => s.DictDetailFeature)
                 .FirstOrDefaultAsync();
 
@@ -50,7 +48,6 @@ namespace MissingPeople.Core.Services.Peoples
                 Surname = entity.Surname,
                 Detail = new PersonDetailDto(entity.Detail),
                 DangerOfLife = entity.DangerOfLife.IsAtRisk,
-                Description = entity.Description.Description,
                 Id = entity.Id,
                 Pictures = entity.Pictures.Select(s => pictureService.GetPictureBase64ByName(s.Name))
             };
@@ -63,7 +60,7 @@ namespace MissingPeople.Core.Services.Peoples
                     Name = feature.DictFeature.Name
                 };
 
-                foreach (var featureDetail in feature.FeaturesDetails)
+                foreach (var featureDetail in feature.DetailFeatures)
                 {
                     var personFeatureDetail = new PersonFeatureDetailDto
                     {
