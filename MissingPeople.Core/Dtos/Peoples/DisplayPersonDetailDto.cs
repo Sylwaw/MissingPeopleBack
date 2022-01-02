@@ -14,12 +14,11 @@ namespace MissingPeople.Core.Dtos.Peoples
         public PersonDetailDto Detail { get; set; }
         public bool DangerOfLife { get; set; }
         public IEnumerable<string> Pictures { get; set; }
-        public ICollection<PersonFeatureDto> PersonFeatures { get; set; }
+        
 
         public DisplayPersonDetailDto()
         {
             this.Pictures = new List<string>();
-            this.PersonFeatures = new List<PersonFeatureDto>();
         }
     }
 }
