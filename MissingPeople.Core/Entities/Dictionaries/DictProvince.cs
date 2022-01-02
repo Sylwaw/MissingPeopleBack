@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace MissingPeople.Core.Entities.Dictionaries
 {
+    [Table("DictProvinces")]
     public class DictProvince:BaseEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

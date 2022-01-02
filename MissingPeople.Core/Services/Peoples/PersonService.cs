@@ -33,11 +33,7 @@ namespace MissingPeople.Core.Services.Peoples
                 .Include(s => s.Detail)
                 .Include(s => s.LastLocation)
                     .ThenInclude(s => s.City)
-                .Include(s => s.Features)
-                    .ThenInclude(s => s.DictFeature)
-                .Include(s => s.Features)
-                    .ThenInclude(s => s.DetailFeatures)
-                        .ThenInclude(s => s.DictDetailFeature)
+                .Include(s => s.DictEye)
                 .FirstOrDefaultAsync();
 
             var person = new DisplayPersonDetailDto
@@ -52,29 +48,7 @@ namespace MissingPeople.Core.Services.Peoples
                 Pictures = entity.Pictures.Select(s => pictureService.GetPictureBase64ByName(s.Name))
             };
 
-            foreach (var feature in entity.Features)
-            {
-                var personFeature = new PersonFeatureDto
-                {
-                    Id = feature.DictFeatureId,
-                    Name = feature.DictFeature.Name
-                };
-
-                foreach (var featureDetail in feature.DetailFeatures)
-                {
-                    var personFeatureDetail = new PersonFeatureDetailDto
-                    {
-                        Id = featureDetail.DictDetailFeatureId,
-                        Name = featureDetail.DictDetailFeature.Name,
-                        Description = featureDetail.Description
-                    };
-                    personFeature.PersonFeatureDetails.Add(personFeatureDetail);
-                }
-
-
-                person.PersonFeatures.Add(personFeature);
-            }
-
+            
             return person;
         }
 
