@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content=" "/>
+    <meta name="keywords" content="zaginieni"/>
+    <meta name="robots" content="noarchive,nosnippet,noodp,noimageindex" />
+    <meta name="googlebot" content="noarchive,nosnippet,noodp,noimageindex" />
+    <meta name="author" content="Zaginieni"/>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="deklaracja-dostępności" content="" />
+    <meta property="og:site_name" content="Zaginieni" />
+    <meta property="og:title" content="Zaginieni" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="" />
+            
+    <title> Zaginieni</title> 
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link href="/dokumenty/szablony/dynamic/2/2-38386.css?1606143601" type="text/css" rel="stylesheet" />
+    <link href="/script/video/video-js/stable/video-js.min.css" rel="stylesheet" type="text/css" />    
+    <link href="/dokumenty/szablonyimg/2-style-mod.css" type="text/css" rel="stylesheet" />
+    <link href="/script/baguetteBox/baguetteBox.min.css" type="text/css" rel="stylesheet" />
+    <link href="/script/mootools/vlaCalendar/styles/vlaCal-v2.11.css" type="text/css" media="screen" rel="stylesheet" />
+    <link href="/script/mootools/galeria/media_jasna.css" type="text/css" rel="stylesheet" />
+    <link href="/webfonts/awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    
+                                                                                <script src="/dokumenty/szablony/dynamic/2/2-6991.js?v=0.46"></script>
+    
+	    
+    <!--[if lt IE 9]>
+		<script  src="/script/html5/html5shiv.js"></script>
+	<![endif]-->
+    
+    
+    <script type="text/javascript">
+		window.addEvent('domready', function() { 
+      		Ellipsis({
+          		class: '.media strong',
+          		lines: 6
+        	});
+      		var yaddm = new YADDM();
+		});
+	</script>
+    
+    <style type="text/css">
+		/* <![CDATA[ */
+
+    	/* ]]> */
+    </style>
+    
+
+    
+  </head>
+  <body class="bg">
+    
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&amp;version=v3.2"></script>
+    
+    <div id="menu-scroll"></div>
+    
+    <!-- WCAG opcje -->
+    <ul class="nav">
+      <li><a href="#menu">Przejdź do menu głównego</a></li>
+      <li><a href="#wtxt">Przejdź do treści</a></li>
+      <!-- <li><a href="#search" id="szukaj-button-wai" aria-controls="search">Przejdź do wyszukiwarki</a></li> -->
+      <li><a href="/zag/mapa">Mapa strony</a></li>
+    </ul>
+    <!-- .WCAG opcje -->
+  
+    
+    <div id="page">
+      
+      <!-- header -->
+      <div id="header-wrapper">
+        <header>
+          <div class="inside">
+            <h1 id="header-logo"><a href="/" title="Strona główna"><span></span><strong><span class="hide"></span>Zaginieni</strong></a></h1>
+            <!-- header opcje -->
+            <div id="header-options">
+              <ul>
+                <li><a href="https://zaginieni.policja.pl" aria-label="Strona główna serwisu Zaginieni"><i class="fa fa-home"></i></a></li>
+                <li><a href="/zag/mapa" aria-label="Mapa serwisu"><i class="fa fa-sitemap"></i></a></li>
+                <li><a href="/zag/wai" aria-label="Wersja tekstowa"><i class="fa fa-adjust"></i></a></li>
+                <li><a href="http://bip.kgp.policja.gov.pl/kgp/jezyk-migowy/23442,dok.html" aria-label="Informacje o alternatywnych metodach komunikowania się - język migowy"><i class="fa fa-deaf" aria-hidden="true"></i></a></li>
+                <li class="szukaj-buttton-init"><a href="#search" id="szukaj-button" aria-controls="search"><i class="fa fa-search"></i><span class="sr-only">Otwórz wyszukiwarkę</span></a></li>
+              </ul>
+              
+              <nav id="mobileMenu"><a href="#"><span class="sr-only">Menu</span><i class="fa fa-reorder"></i></a></nav>
+              
+            </div>
+            <!-- header opcje. -->
+            
+            <!-- search -->
+            <div id="search" class="search" tabindex="-1" aria-activedescendant="search-header">
+              <div class="search__row">
+                <div class="search_col">
+                  <h2 class="search__header">Wyszukiwarka</h2>
+                  <button id="szukaj-button-close" class="search__delete_btn">
+                    <i class="fa fa-times-circle-o"></i>
+                    <span class="sr-only">Zamknij wyszukiwarkę</span>
+                  </button>
+                </div>
+              </div>
+              <div class="search__row">
+                <div class="search_col">
+                  <form action="/zag/szukaj" method="post" class="search__form">
+                    <fieldset class="search__fieldset">
+                      <label for="szukajg" class="sr-only">szukaj</label>
+                      <input type="text" id="szukajg" class="search__input" name="szukaj" placeholder="wpisz szukaną frazę" value="" />
+                      <button type="submit" class="search__btn">
+                        <span class="sr-only">Szukaj</span><i class="fa fa-search"></i>
+                      </button>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- search. -->
+          </div>
+          <!-- menu -->
+          <nav id="menu">
+            <div class="inside">
+              
+<ul id="navmenu" class="mainmenu" role="menubar" aria-hidden="false">
+					<li role="menuitem"><a href="/portal/zag/form/7/Zaginieni.html" target="_top" aria-haspopup="true"><strong><span>Baza zaginionych</span></strong></a>        				</li>
+					<li role="menuitem"><a href="/zag/zglos-miejsce-pobytu-z" target="_top" aria-haspopup="true"><strong><span>Zgłoś miejsce pobytu zaginionego</span></strong></a>        				</li>
+	</ul>            </div>
+          </nav>
+          <!-- menu. -->
+        </header>
+      </div>
+      <div class="clear"></div>
+      <!--  header. -->
+      
+      <!--  content  -->
+<div id="content">
+  
+  
+  
+  <!--  content-left  -->
+  <article class="mainLeft">
+    
+    
+    <img src="/dokumenty/menu/naglowek_116.jpg" style="width:610px; height:299px;" alt="Zaginieni" />    <div class="clear margin_b10"></div>
+    
+    <div class="naglowek1"><h2>Osoby zaginione</h2></div>
+  <div class="okno">
+    <ul class="flex">
+      
+<li class="threeRows thumbList ">
+  <a href="/zag/form/r8194725121142,PIOTROWICZ-ZDZISLAW.html" title="ZAGINIONY PIOTROWICZ ZDZISŁAW   " target="">
+    <div class="imgcontainer">
+      <div class="imgwraper">
+        <img src="/dokumenty/form/mini_o1_2-8194725121142-125.jpg" alt="PIOTROWICZ ZDZISŁAW" />        <div class="mask"></div>
+      </div>
+    </div>
+    <strong>PIOTROWICZ ZDZISŁAW   </strong>
+  </a>
+</li>
+<li class="threeRows thumbList ">
+  <a href="/zag/form/r4127356350832,LIPIEC-MATEUSZ.html" title="ZAGINIONY LIPIEC MATEUSZ   " target="">
+    <div class="imgcontainer">
+      <div class="imgwraper">
+        <img src="/dokumenty/form/mini_o1_2-4127356350832-125.jpg" alt="LIPIEC MATEUSZ" />        <div class="mask"></div>
+      </div>
+    </div>
+    <strong>LIPIEC MATEUSZ   </strong>
+  </a>
+</li>
+<li class="threeRows thumbList ">
+  <a href="/zag/form/r429872400,WOJNAROWSKI-JERZY.html" title="ZAGINIONY WOJNAROWSKI JERZY   " target="">
+    <div class="imgcontainer">
+      <div class="imgwraper">
+        <img src="/dokumenty/form/mini_o1_2-429872400-125.jpg" alt="WOJNAROWSKI JERZY" />        <div class="mask"></div>
+      </div>
+    </div>
+    <strong>WOJNAROWSKI JERZY   </strong>
+  </a>
+</li>
+<li class="threeRows thumbList ">
+  <a href="/zag/form/r61811353618651,JASINSKI-MIROSLAW.html" title="ZAGINIONY JASIŃSKI MIROSŁAW  DAWID " target="">
+    <div class="imgcontainer">
+      <div class="imgwraper">
+        <img src="/dokumenty/form/mini_o1_2-61811353618651-125.jpg" alt="JASIŃSKI MIROSŁAW" />        <div class="mask"></div>
+      </div>
+    </div>
+    <strong>JASIŃSKI MIROSŁAW  DAWID </strong>
+  </a>
+</li>
+			
+    </ul>
+    <div class="clear"></div>
+    <div class="wiecejAll"><a href="/zag/form/7,Zaginieni.html"><span></span>Więcej</a></div>
+</div>	    <div class="clear"></div>
+    
+    
+    <div class="clear"></div>
+    
+  </article>
+  <!--  content-left  -->
+  
+  <!--  content-right  -->
+  <article class="mainRight">
+    
+    
+    <div class="box-white">
+      <div class="naglowek1"><h2>Zgłoś informację o osobie zaginionej</h2></div>
+      <div class="okno">
+      <p class="align_center"><a href="/zag/zglos-miejsce-pobytu-z" class="button alert">Zgłoś miejsce pobytu zaginionego</a></p>
+      <p>Zaginięcia osób należy zgłaszać osobiście w najbliższej jednostce Policji, wskazane jest posiadanie zdjęcia osoby zaginionej.</p>
+      <p>Zadzwoń: <b>997</b> lub <b>112</b></p>
+      </div>
+    </div>
+    <div class="clear"></div>
+    
+    <div class="box-white" id="wyszukiwarka-osob">
+      <div class="naglowek1"><h2>Wyszukiwarka osób zaginionych</h2></div>
+      <div class="box">
+        <div class="forms">
+          <form action="/zag/form/7,Zaginieni.html" method="post">
+            <fieldset>
+              <ins>
+                <label for="pole114">Nazwisko,Imię lub Pseudonim</label>
+                <div class="form_input"><input type="text" name="pole114" id="pole114" value="" style="width:98%;" /></div>
+              </ins>
+              <ins>
+                <label for="pole118">Jednostki policji</label>
+                <div class="form_input">
+                  <select name="pole118[]" id="pole118" multiple="multiple" size="6" style="width:100%">
+                  <option value="">wybierz</option>
+                  <option value="1022" >BG KWP Bydgoszcz</option>
+                  <option value="1021" >BK KWP Białystok</option>
+                  <option value="1014" >GD KWP Gdańsk</option>
+                  <option value="1015" >GO KWP Gorzów Wlkp.</option>
+                  <option value="1006" >KA KWP Katowice</option>
+                  <option value="1007" >KI KWP Kielce</option>
+                  <option value="1016" >KK KWP Kraków</option>
+                  <option value="1008" >LD KWP Łódź</option>
+                  <option value="1009" >LU KWP Lublin</option>
+                  <option value="1010" >OL KWP Olsztyn</option>
+                  <option value="1017" >OP KWP Opole</option>
+                  <option value="1011" >PO KWP Poznań</option>
+                  <option value="1018" >RZ KWP Rzeszów</option>
+                  <option value="1012" >SC KWP Szczecin</option>
+                  <option value="1019" >WA KSP Warszawa</option>
+                  <option value="1013" >WA KWP Radom</option>
+                  <option value="1020" >WR KWP Wrocław</option>
+                </select>
+              </div>
+            </ins>
+            <ins class="submit"><input type="submit" name="sub" value="Szukaj" class="" /></ins>
+			<ins class="submit"><a href="/zag/form/7,dok.html" class="button">pokaż całą bazę zaginionych</a></ins>
+          </fieldset>
+        </form>
+      </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+    
+        <div class="clear"></div>
+    
+    <div class="box-white">
+      <div class="naglowek1"><h2>Index alfabetyczny</h2></div>
+      <div class="clear"></div>
+      <div class="okno">
+      <div id="meni_strony">
+        <ul>
+          <li><a href="/zag/form/7,Zaginieni.html?l=1" onclick="return ajax_go_to('','')">#</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=2" onclick="return ajax_go_to('','')">A</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=3" onclick="return ajax_go_to('','')">B</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=4" onclick="return ajax_go_to('','')">C</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=5" onclick="return ajax_go_to('','')">Ć</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=6" onclick="return ajax_go_to('','')">D</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=7" onclick="return ajax_go_to('','')">E</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=8" onclick="return ajax_go_to('','')">Ę</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=9" onclick="return ajax_go_to('','')">F</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=10" onclick="return ajax_go_to('','')">G</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=11" onclick="return ajax_go_to('','')">H</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=12" onclick="return ajax_go_to('','')">I</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=13" onclick="return ajax_go_to('','')">J</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=14" onclick="return ajax_go_to('','')">K</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=15" onclick="return ajax_go_to('','')">L</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=16" onclick="return ajax_go_to('','')">Ł</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=17" onclick="return ajax_go_to('','')">M</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=18" onclick="return ajax_go_to('','')">N</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=19" onclick="return ajax_go_to('','')">O</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=20" onclick="return ajax_go_to('','')">Ó</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=21" onclick="return ajax_go_to('','')">P</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=22" onclick="return ajax_go_to('','')">Q</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=23" onclick="return ajax_go_to('','')">R</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=24" onclick="return ajax_go_to('','')">S</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=25" onclick="return ajax_go_to('','')">Ś</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=26" onclick="return ajax_go_to('','')">T</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=27" onclick="return ajax_go_to('','')">U</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=28" onclick="return ajax_go_to('','')">V</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=29" onclick="return ajax_go_to('','')">W</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=30" onclick="return ajax_go_to('','')">Y</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=31" onclick="return ajax_go_to('','')">X</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=32" onclick="return ajax_go_to('','')">Z</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=33" onclick="return ajax_go_to('','')">Ż</a></li>
+          <li><a href="/zag/form/7,Zaginieni.html?l=34" onclick="return ajax_go_to('','')">Ź</a></li>
+        </ul>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+    
+        
+    
+    <div class="clear"></div>
+  </article>
+  <!-- content-right.  -->
+  
+  <div class="clear"></div>
+  
+</div>
+<!--  content. -->      
+      <!-- footer -->
+      <footer>
+        <div id="footer-top">
+          <div class="footer-content">
+            <div class="pad20">Pobieranie danych i wizerunków osób zaginionych ze stron serwisu, a następnie umieszczanie na innych niż policyjne stronach internetowych jest dozwolone, jednak w takiej sytuacji odpowiedzialność za aktualność publikacji spoczywa na administratorze publikującego portalu. Wszelkie roszczenia związane z publikowaniem bądź kopiowaniem zawartości serwisu na stronach innych niż policyjne proszę kierować do administratorów właściwych stron sieci Internet.</div>
+          </div>
+        </div>
+        <div id="footer-bottom">
+          <div class="footer-content">
+            <ul>
+              <li style="width:190px;">
+                <h2>Policja <span lang="en_gb">online</span></h2>
+                <ul id="social">
+                  <li><a href="/zag/rss" class="rss" title="RSS">Kanał RSS</a></li>
+                  <li><a href="http://www.youtube.com/user/PolicjaPL" target="_blank" class="yt">Odwiedź nas na <span lang="en_gb">YouTube</span></a></li>
+                  <li><a href="https://www.facebook.com/PolicjaPL" target="_blank" class="fb">Odwiedź nas na <span lang="en_gb">Facebook</span></a></li>
+                  <li><a href="https://www.instagram.com/policja_kgp/" target="_blank" class="in">Odwiedź nas na <span lang="en_gb">Instagram</span></a></li>
+                  <li><a href="https://twitter.com/PolskaPolicja" target="_blank" class="tw">Odwiedź nas na <span lang="en_gb">Twitter</span></a></li>
+                </ul>
+              </li>
+              <li style="width:auto;">
+                <h2>Biuletyn Informacji Publicznej</h2>
+                <span class="bip"></span>
+                <a href="http://bip.kgp.policja.gov.pl" target="_blank">BIP KGP</a>
+              </li>
+              <li style="width:auto;">
+                <h2>Redakcja serwisu</h2>
+                <a href="javascript:void(location.href='mailto:'+String.fromCharCode(112,111,114,116,97,108,64,112,111,108,105,99,106,97,46,103,111,118,46,112,108))">Kontakt z redakcją</a>
+              </li>
+              <li style="width:auto;">
+                <h2>Dostępność</h2>
+                <a href="https://zaginieni.policja.pl/zag/wolnytekst/6743,Deklaracja-dostepnosci.html">Deklaracja dostępności</a>
+              </li>
+              <li style="width:auto;">
+                <h2>Nota prawna</h2>
+                Chcesz wykorzystać materiał<br/>z serwisu Zaginieni.<br/>
+                <a href="https://zaginieni.policja.pl/pol/wolnytekst/46616,dok.html">Zapoznaj się z zasadami</a><br/>
+                <a href="https://zaginieni.policja.pl/pol/wolnytekst/59485,dok.html">Polityka prywatności</a>
+              </li>
+              <li style="width:auto;">
+                <h2>Inne wersje portalu</h2>
+                <a href="/zag/wai" class="wai"><span>Wersja tekstowa</span></a><br/>
+                <a href="https://info.policja.pl/ine/"><span lang="en_GB">About Polish Police</span></a><br/>
+			</li>
+            </ul>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </footer>
+      <!-- footer .-->
+      
+    </div>
+    
+    <!-- GoToTop  -->
+    <div id="back-to-top"><a href="#page" title="Powrót na górę strony"><span></span><span class="sr-only">Powrót na górę strony</span></a></div>
+    <!-- GoToTop  .-->
+    
+    <div id="likebox">
+      <div class="fb-page" 
+      	data-href="https://www.facebook.com/PolicjaPL"
+      	data-width="250" 
+      	data-hide-cover="false"
+      	data-show-facepile="false">
+          <blockquote cite="https://www.facebook.com/PolicjaPL" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/PolicjaPL">Polska Policja</a>
+          </blockquote>
+      </div>
+    </div>
+    
+  </body>
+</html><!-- 0.034530 / WebAdministrator (21.11.2020 23:43) //--><!-- GZIP Buffer //-->

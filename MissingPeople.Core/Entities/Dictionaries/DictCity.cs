@@ -14,7 +14,7 @@ namespace MissingPeople.Core.Entities.Dictionaries
         public double CordinateX { get; set; }
         public int IdentifierTeryt { get; set; }
         public int ProvinceId { get; set; }
-        public ICollection<LastLocation> LastLocations { get; set; }
+        public ICollection<Person> People { get; set; }
 
         [ForeignKey("ProvinceId")]
         public virtual DictProvince Provinces { get; set; }

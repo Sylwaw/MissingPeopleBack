@@ -17,7 +17,6 @@ namespace MissingPeople.Infrastructure.Data
         public DbSet<DictCity> DictCities { get; set; }
         public DbSet<Picture> Pictures { get; set; }
         public DbSet<DangerOfLife> DangersOfLife { get; set; }
-        public DbSet<LastLocation> LastLocations { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<PersonDetail> PeopleDetails { get; set; }
         public DbSet<DictProvince> DictProvinces { get; set; }
