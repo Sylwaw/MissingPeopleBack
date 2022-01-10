@@ -12,7 +12,7 @@ namespace MissingPeople.Core.Entities.Peoples
         [ForeignKey("PersonId")]
         public Person Person { get; set; }
         public bool IsAtRisk { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
     }
 }

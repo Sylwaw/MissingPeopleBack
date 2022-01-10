@@ -106,26 +106,6 @@ namespace MissingPeople.Infrastructure.Migrations
                     b.ToTable("DangersOfLife");
                 });
 
-            modelBuilder.Entity("MissingPeople.Core.Entities.Peoples.LastLocation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<int>("CityId")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("Modified")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CityId");
-
-                    b.ToTable("LastLocations");
-                });
-
             modelBuilder.Entity("MissingPeople.Core.Entities.Peoples.Person", b =>
                 {
                     b.Property<int>("Id")
@@ -136,14 +116,14 @@ namespace MissingPeople.Infrastructure.Migrations
                     b.Property<DateTime>("DateOfDisappear")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<int?>("DictCityID")
+                        .HasColumnType("integer");
+
                     b.Property<int?>("DictEyeID")
                         .HasColumnType("integer");
 
                     b.Property<bool>("IsWaiting")
                         .HasColumnType("boolean");
-
-                    b.Property<int?>("LastLocationID")
-                        .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
@@ -159,9 +139,9 @@ namespace MissingPeople.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DictEyeID");
+                    b.HasIndex("DictCityID");
 
-                    b.HasIndex("LastLocationID");
+                    b.HasIndex("DictEyeID");
 
                     b.ToTable("People");
                 });
@@ -250,30 +230,19 @@ namespace MissingPeople.Infrastructure.Migrations
                     b.Navigation("Person");
                 });
 
-            modelBuilder.Entity("MissingPeople.Core.Entities.Peoples.LastLocation", b =>
-                {
-                    b.HasOne("MissingPeople.Core.Entities.Dictionaries.DictCity", "City")
-                        .WithMany("LastLocations")
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("City");
-                });
-
             modelBuilder.Entity("MissingPeople.Core.Entities.Peoples.Person", b =>
                 {
+                    b.HasOne("MissingPeople.Core.Entities.Dictionaries.DictCity", "DictCity")
+                        .WithMany("People")
+                        .HasForeignKey("DictCityID");
+
                     b.HasOne("MissingPeople.Core.Entities.Dictionaries.DictEye", "DictEye")
                         .WithMany("Persons")
                         .HasForeignKey("DictEyeID");
 
-                    b.HasOne("MissingPeople.Core.Entities.Peoples.LastLocation", "LastLocation")
-                        .WithMany("People")
-                        .HasForeignKey("LastLocationID");
+                    b.Navigation("DictCity");
 
                     b.Navigation("DictEye");
-
-                    b.Navigation("LastLocation");
                 });
 
             modelBuilder.Entity("MissingPeople.Core.Entities.Peoples.PersonDetail", b =>
@@ -300,7 +269,7 @@ namespace MissingPeople.Infrastructure.Migrations
 
             modelBuilder.Entity("MissingPeople.Core.Entities.Dictionaries.DictCity", b =>
                 {
-                    b.Navigation("LastLocations");
+                    b.Navigation("People");
                 });
 
             modelBuilder.Entity("MissingPeople.Core.Entities.Dictionaries.DictEye", b =>
@@ -311,11 +280,6 @@ namespace MissingPeople.Infrastructure.Migrations
             modelBuilder.Entity("MissingPeople.Core.Entities.Dictionaries.DictProvince", b =>
                 {
                     b.Navigation("Cities");
-                });
-
-            modelBuilder.Entity("MissingPeople.Core.Entities.Peoples.LastLocation", b =>
-                {
-                    b.Navigation("People");
                 });
 
             modelBuilder.Entity("MissingPeople.Core.Entities.Peoples.Person", b =>

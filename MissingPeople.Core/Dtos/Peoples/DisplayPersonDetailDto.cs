@@ -10,9 +10,9 @@ namespace MissingPeople.Core.Dtos.Peoples
         public string SecondName { get; set; }
         public string Surname { get; set; }
         public string City { get; set; }
-        public string Description { get; set; }
         public PersonDetailDto Detail { get; set; }
         public bool DangerOfLife { get; set; }
+        public string Eyes { get; set; }
         public IEnumerable<string> Pictures { get; set; }
         
 

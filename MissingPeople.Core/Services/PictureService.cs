@@ -10,11 +10,11 @@ namespace MissingPeople.Core.Services
     {
         public string GetPictureBase64ByName(string name)
         {
-            var picture = Image.FromFile($"c:\\{name}.jpg");
+            var picture = Image.FromFile($"C:/Users/Sylwia/Desktop/MOJE/STUDIA/MissingPeopleBack/foto//{name}");
             return picture.ImageToBase64();
         }
 
-        //Picture service 1
+        //Picture service 1 
 
     }
 }

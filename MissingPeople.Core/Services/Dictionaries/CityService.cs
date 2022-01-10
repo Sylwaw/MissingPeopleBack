@@ -27,5 +27,6 @@ namespace MissingPeople.Core.Services.Dictionaries
 
             return mapper.Map<IEnumerable<CityDto>>(await cities.ToListAsync());
         }
+        //gdzie to doda³eœ ten serwis?
     }
 }

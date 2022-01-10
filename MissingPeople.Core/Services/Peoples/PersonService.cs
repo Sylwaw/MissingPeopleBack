@@ -8,12 +8,15 @@ using MissingPeople.Core.Entities.Peoples;
 using MissingPeople.Core.Interfaces.Repository;
 using MissingPeople.Core.Interfaces;
 using MissingPeople.Core.Interfaces.Peoples;
+using MissingPeople.Core.Extensions;
 using static MissingPeople.Core.Dtos.Peoples.DisplayPersonDetailDto;
+
 
 namespace MissingPeople.Core.Services.Peoples
 {
     public class PersonService : IPersonService
     {
+        
         private readonly IRepositoryBase<Person> repositoryPerson;
         private readonly IPictureService pictureService;
         private readonly IMapper mapper;
@@ -31,43 +34,47 @@ namespace MissingPeople.Core.Services.Peoples
                 .Include(s => s.DangerOfLife)
                 .Include(s => s.Pictures)
                 .Include(s => s.Detail)
-                .Include(s => s.LastLocation)
-                    .ThenInclude(s => s.City)
+                .Include(s => s.DictCity)
                 .Include(s => s.DictEye)
                 .FirstOrDefaultAsync();
 
             var person = new DisplayPersonDetailDto
-            {
-                City = entity.LastLocation.City.Name,
+            { 
+                //nie mo¿na zaci¹gn¹æ z pustego obiektu
+                City = entity.DictCity != null ? entity.DictCity.Name : "",
+                Eyes = entity.DictEye != null ? entity.DictEye.Name : "",
                 Name = entity.Name,
                 SecondName = entity.SecondName,
                 Surname = entity.Surname,
                 Detail = new PersonDetailDto(entity.Detail),
                 DangerOfLife = entity.DangerOfLife.IsAtRisk,
                 Id = entity.Id,
-                Pictures = entity.Pictures.Select(s => pictureService.GetPictureBase64ByName(s.Name))
+                Pictures = entity.Pictures.Select(s => pictureService.GetPictureBase64ByName(s.Name))    
             };
 
             
             return person;
         }
 
-        public async Task<IEnumerable<DisplayPersonDto>> GetPersonsAsync()
+        public async Task<IEnumerable<DisplayPersonDto>> GetPersonsAsync(int page, int personPerPage)
         {
-            var entities = await repositoryPerson.GetAll()
-                .Include(s => s.LastLocation)
-                    .ThenInclude(s => s.City)
-                .Include(s => s.Pictures.Take(1))
-                .ToListAsync();
+            ;
+            var entities = repositoryPerson.GetAll()
+                 .Include(s => s.DictCity)
+                 .Include(s => s.Pictures.Take(1))
+                 .Skip(page * personPerPage)
+                 .Take(personPerPage);
+
+            var persons = await entities.ToListAsync();
 
             ICollection<DisplayPersonDto> models = new List<DisplayPersonDto>();
 
-            foreach (var entity in entities)
+            foreach (var entity in persons)
             {
                 var person = new DisplayPersonDto
                 {
                     Id = entity.Id,
-                    City = entity.LastLocation.City.Name,
+                    City = entity.DictCity != null ? entity.DictCity.Name : "",
                     Name = entity.Name,
                     Surname = entity.Surname,
                     Picture = pictureService.GetPictureBase64ByName(entity.Pictures.FirstOrDefault().Name)
@@ -78,7 +85,5 @@ namespace MissingPeople.Core.Services.Peoples
 
             return models;
         }
-
-
     }
 }
