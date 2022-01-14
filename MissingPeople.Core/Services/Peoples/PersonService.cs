@@ -10,7 +10,7 @@ using MissingPeople.Core.Interfaces;
 using MissingPeople.Core.Interfaces.Peoples;
 using MissingPeople.Core.Extensions;
 using static MissingPeople.Core.Dtos.Peoples.DisplayPersonDetailDto;
-
+using MissingPeople.Core.Entities.Dictionaries;
 
 namespace MissingPeople.Core.Services.Peoples
 {
@@ -51,14 +51,12 @@ namespace MissingPeople.Core.Services.Peoples
                 Id = entity.Id,
                 Pictures = entity.Pictures.Select(s => pictureService.GetPictureBase64ByName(s.Name))    
             };
-
-            
             return person;
         }
 
         public async Task<IEnumerable<DisplayPersonDto>> GetPersonsAsync(int page, int personPerPage)
         {
-            ;
+            
             var entities = repositoryPerson.GetAll()
                  .Include(s => s.DictCity)
                  .Include(s => s.Pictures.Take(1))
@@ -85,5 +83,76 @@ namespace MissingPeople.Core.Services.Peoples
 
             return models;
         }
+
+        public async Task<Person> UpdatePersonByIdAsync(UpdatePersonDto updatingPerson, int id)
+        {
+            var entity = await repositoryPerson.GetByFunc(s => s.Id == id)
+                .Include(s => s.DangerOfLife)
+                .Include(s => s.Detail)
+                .Include(s => s.DictCity)
+                .FirstOrDefaultAsync();
+                
+               
+            if (entity.DictCity != null)
+            {
+                entity.DictCity.Name = updatingPerson.City;
+            }
+            
+            entity.DangerOfLife.IsAtRisk = updatingPerson.IsAtRisk;
+            entity.Detail.OtherDetails = updatingPerson.OtherDetails;
+            entity.DangerOfLife.Description = updatingPerson.RiskDescription;
+
+            await repositoryPerson.UpdateAsync(entity);
+            return entity;
+
+
+            //person.City = updatingPerson.City;
+            //person.IsAtRisk = updatingPerson.IsAtRisk;
+            //person.OtherDetails = updatingPerson.OtherDetails;
+            //person.RiskDescription = updatingPerson.RiskDescription;
+
+
+        }
+
+        public async Task<Person> AddPersonAsync(Person person)
+        {
+            var newPerson = new Person
+            {
+                //jak dodawaæ ID automatycznie? - tutaj mam b³¹d
+                Name = person.Name,
+                SecondName = person.SecondName,
+                Surname = person.Surname,
+                YearOfBirth = person.YearOfBirth,
+                DateOfDisappear = person.DateOfDisappear,
+                IsWaiting = true,
+                //Jak dodawaæ wartoœci w poszczególnych polach powi¹zanych tabel??
+                DictEye = person.DictEye,
+                //jak rozwi¹zaæ to ¿e w bazie jest po kilka miast o takiej samej nazwie?
+                DictCity = person.DictCity,
+                DangerOfLife = person.DangerOfLife, 
+                Detail = person.Detail
+            };
+
+            await repositoryPerson.CreateAsync(newPerson);
+            return newPerson;
+
+
+        }
+            
+            
+        
+
+        
+        
+        
+       
+       
+            
+            
+        
+
+
     }
+
+
 }

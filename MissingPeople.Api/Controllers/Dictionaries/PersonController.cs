@@ -39,6 +39,19 @@ namespace MissingPeople.Api.Controllers.Dictionaries
             return new JsonResult(await personService.GetPersonsAsync(page, PERSON_PER_PAGE));
         }
 
+        [HttpPut("updatePerson")]
+        public async Task<ActionResult<UpdatePersonDto>> PutPeopleById(UpdatePersonDto updatePerson, int id)
+        {
+            return new JsonResult(await personService.UpdatePersonByIdAsync(updatePerson, id));
+        }
+
+        [HttpPost("createPerson")]
+        public async Task<ActionResult<Person>> PostPerson(Person person)
+        {
+            return new JsonResult(await personService.AddPersonAsync(person));
+        }
+
+
 
         //    private readonly MissingPeopleDbContext _context;
 
