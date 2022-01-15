@@ -11,6 +11,8 @@ using MissingPeople.Core.Interfaces.Peoples;
 using MissingPeople.Core.Extensions;
 using static MissingPeople.Core.Dtos.Peoples.DisplayPersonDetailDto;
 using MissingPeople.Core.Entities.Dictionaries;
+using System;
+using MissingPeople.Core.Interfaces.Dictionaries;
 
 namespace MissingPeople.Core.Services.Peoples
 {
@@ -18,14 +20,16 @@ namespace MissingPeople.Core.Services.Peoples
     {
         
         private readonly IRepositoryBase<Person> repositoryPerson;
+        private readonly ICityService cityService;
         private readonly IPictureService pictureService;
         private readonly IMapper mapper;
 
-        public PersonService(IRepositoryBase<Person> repositoryPerson, IMapper mapper, IPictureService pictureService)
+        public PersonService(IRepositoryBase<Person> repositoryPerson, IMapper mapper, IPictureService pictureService, ICityService cityService)
         {
             this.repositoryPerson = repositoryPerson;
             this.pictureService = pictureService;
             this.mapper = mapper;
+            this.cityService = cityService;
         }
 
         public async Task<DisplayPersonDetailDto> GetPersonByIdAsync(int id)
@@ -91,11 +95,11 @@ namespace MissingPeople.Core.Services.Peoples
                 .Include(s => s.Detail)
                 .Include(s => s.DictCity)
                 .FirstOrDefaultAsync();
-                
-               
-            if (entity.DictCity != null)
-            {
-                entity.DictCity.Name = updatingPerson.City;
+
+            var city = await cityService.GetCityByName(updatingPerson.City);
+
+            if(city !=null) {
+                entity.DictCityID = city.Id;
             }
             
             entity.DangerOfLife.IsAtRisk = updatingPerson.IsAtRisk;
@@ -106,50 +110,65 @@ namespace MissingPeople.Core.Services.Peoples
             return entity;
 
 
-            //person.City = updatingPerson.City;
-            //person.IsAtRisk = updatingPerson.IsAtRisk;
-            //person.OtherDetails = updatingPerson.OtherDetails;
-            //person.RiskDescription = updatingPerson.RiskDescription;
-
-
         }
 
-        public async Task<Person> AddPersonAsync(Person person)
+        //dodaæ foty, miasto i oczy
+        public int AddPerson(Person person, DangerOfLife dangerOfLife, PersonDetail personDetail)
         {
-            var newPerson = new Person
+            if (person == null){
+                throw new Exception("Person cannot be null");
+            }
+            if (dangerOfLife == null)
             {
-                //jak dodawaæ ID automatycznie? - tutaj mam b³¹d
-                Name = person.Name,
-                SecondName = person.SecondName,
-                Surname = person.Surname,
-                YearOfBirth = person.YearOfBirth,
-                DateOfDisappear = person.DateOfDisappear,
-                IsWaiting = true,
-                //Jak dodawaæ wartoœci w poszczególnych polach powi¹zanych tabel??
-                DictEye = person.DictEye,
-                //jak rozwi¹zaæ to ¿e w bazie jest po kilka miast o takiej samej nazwie?
-                DictCity = person.DictCity,
-                DangerOfLife = person.DangerOfLife, 
-                Detail = person.Detail
-            };
+                throw new Exception("Danger of life cannot be null");
+            }
+            if (personDetail == null)
+            {
+                throw new Exception("Person details cannot be null");
+            }
+            
+            person.DangerOfLife = dangerOfLife;
+            person.PersonDetail = personDetail;
 
-            await repositoryPerson.CreateAsync(newPerson);
-            return newPerson;
+            repositoryPerson.CreateAsync(person);
+            return person.Id;
+        }
+
+        //mo¿na to zrobiæ w inny sposób - cascade delete fluent API
+        public void DeletePerson(Person person, DangerOfLife dangerOfLife, PersonDetail personDetail)
+        {
+            if (person == null)
+            {
+                throw new Exception("Person cannot be null");
+            }
+            if (dangerOfLife == null)
+            {
+                throw new Exception("Danger of life cannot be null");
+            }
+            if (personDetail == null)
+            {
+                throw new Exception("Person details cannot be null");
+            }
+
+            repositoryPerson.DeleteAsync(person);
+            //repositoryPerson.DeleteAsync(dangerOfLife);
+            //repositoryPerson.DeleteAsync(personDetail);
+
 
 
         }
-            
-            
-        
 
-        
-        
-        
-       
-       
-            
-            
-        
+
+
+
+
+
+
+
+
+
+
+
 
 
     }

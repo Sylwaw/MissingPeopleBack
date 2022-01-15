@@ -18,6 +18,7 @@ namespace MissingPeople.Core.Entities.Peoples
         public DateTime? DateOfDisappear { get; set; }
         public int? DictEyeID { get; set; }
         public int? DictCityID { get; set; }
+        public int PersonDetailID { get; set; }
         public PersonDetail Detail { get; set; }
         public DangerOfLife DangerOfLife { get; set; }
 
@@ -27,6 +28,9 @@ namespace MissingPeople.Core.Entities.Peoples
         [ForeignKey("DictCityID")]
         public DictCity? DictCity { get; set; }
         public ICollection<Picture> Pictures { get; set; }
+
+        [ForeignKey("PersonDetailID")]
+        public PersonDetail PersonDetail;
         
     }
 }

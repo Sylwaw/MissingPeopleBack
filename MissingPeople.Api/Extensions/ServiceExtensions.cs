@@ -17,6 +17,8 @@ namespace MissingPeople.Api.Extensions
             service.AddScoped<IPersonService,PersonService>();
             service.AddScoped<IPictureService,PictureService>();
             service.AddScoped<ICityService, CityService>();
+            service.AddScoped<IPersonDetailService, PersonDetailService>();
+            service.AddScoped<IDangerOfLifeService, DangerOfLifeService>();
             
         }
     }
