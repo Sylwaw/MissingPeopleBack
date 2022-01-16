@@ -24,5 +24,17 @@ namespace MissingPeople.Core.Services.Peoples
 
             return dangerOfLife.Id;
         }
+
+        public DangerOfLife GetDangerOfLifeByID(int id)
+        {
+            if (id <= 0)
+            {
+                throw new Exception("ID cannot be lower or equal to 0");
+            }
+
+            var entity = repositoryDangerOfLife.GetByFunc(s => s.Id == id).FirstOrDefault();
+            return entity;
+        }
     }
+
 }

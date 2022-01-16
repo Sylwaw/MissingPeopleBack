@@ -126,9 +126,10 @@ namespace MissingPeople.Core.Services.Peoples
             {
                 throw new Exception("Person details cannot be null");
             }
-            
+
             person.DangerOfLife = dangerOfLife;
             person.PersonDetail = personDetail;
+            
 
             repositoryPerson.CreateAsync(person);
             return person.Id;

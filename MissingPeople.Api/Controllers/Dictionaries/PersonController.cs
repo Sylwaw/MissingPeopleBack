@@ -20,11 +20,15 @@ namespace MissingPeople.Api.Controllers.Dictionaries
     public class PersonController : Controller
     {
         private readonly IPersonService personService;
+        private readonly IPersonDetailService personDetailService;
+        private readonly IDangerOfLifeService dangerOfLifeService;
         private const int PERSON_PER_PAGE = 10; // liczba wyswietlanych osob na stronie
 
-        public PersonController(IPersonService personService)
+        public PersonController(IPersonService personService, IPersonDetailService personDetailService, IDangerOfLifeService dangerOfLifeService)
         {
             this.personService = personService;
+            this.dangerOfLifeService = dangerOfLifeService;
+            this.personDetailService = personDetailService;
         }
 
         [HttpGet("peopleByID")]
@@ -44,6 +48,34 @@ namespace MissingPeople.Api.Controllers.Dictionaries
         {
             var result = await personService.UpdatePersonByIdAsync(updatePerson, id);
             return Ok();
+        }
+
+        [HttpPost("createPerson")]
+        public IActionResult PostPerson([FromBody] Person person)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var dangerOfLife = dangerOfLifeService.GetDangerOfLifeByID(person.DangerOfLife.Id);
+            if (dangerOfLife == null)
+            {
+                return NotFound("Cannot find dangers of life with provided id");
+            }
+
+            var personDetails = personDetailService.GetPersonDetailByID(person.PersonDetail.Id);
+            if (personDetails == null)
+            {
+                return NotFound("Cannot find person details with provided id");
+            }
+
+            
+
+            var newPersonID = personService.AddPerson(person, dangerOfLife, personDetails);
+
+            return new JsonResult(newPersonID);
+
         }
 
         

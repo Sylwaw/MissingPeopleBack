@@ -11,5 +11,6 @@ namespace MissingPeople.Core.Interfaces.Peoples
     public interface IPersonDetailService 
     {
         public int AddDetails(PersonDetail personDetail);
+        public PersonDetail GetPersonDetailByID(int id);
     }
 }

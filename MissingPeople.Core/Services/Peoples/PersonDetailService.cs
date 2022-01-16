@@ -25,5 +25,16 @@ namespace MissingPeople.Core.Services.Peoples
 
             return personDetail.Id;
         }
+
+        public PersonDetail GetPersonDetailByID(int id)
+        {
+            if(id <= 0)
+            {
+                throw new Exception("ID cannot be lower or equal to 0");
+            }
+
+            var entity = repositoryPersonDetail.GetByFunc(s => s.Id == id).FirstOrDefault();
+            return entity;
+        }
     }
 }
