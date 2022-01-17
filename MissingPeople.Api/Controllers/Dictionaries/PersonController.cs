@@ -50,34 +50,19 @@ namespace MissingPeople.Api.Controllers.Dictionaries
             return Ok();
         }
 
-        [HttpPost("createPerson")]
-        public IActionResult PostPerson([FromBody] Person person)
+        [HttpDelete("deletePerson")]
+        public async Task<IActionResult> DeletePeopleById(int id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var dangerOfLife = dangerOfLifeService.GetDangerOfLifeByID(person.DangerOfLife.Id);
-            if (dangerOfLife == null)
-            {
-                return NotFound("Cannot find dangers of life with provided id");
-            }
-
-            var personDetails = personDetailService.GetPersonDetailByID(person.PersonDetail.Id);
-            if (personDetails == null)
-            {
-                return NotFound("Cannot find person details with provided id");
-            }
-
-            
-
-            var newPersonID = personService.AddPerson(person, dangerOfLife, personDetails);
-
-            return new JsonResult(newPersonID);
-
+            await personService.DeletePerson(id);
+            return Accepted();
         }
 
-        
+        [HttpPost("createPerson")]
+        public async Task<ActionResult<CreatePersonDto>> PostPerson(CreatePersonDto createPersonDto)
+        {
+            return new JsonResult(await personService.AddPerson(createPersonDto));
+        }
+
+
     }
 }

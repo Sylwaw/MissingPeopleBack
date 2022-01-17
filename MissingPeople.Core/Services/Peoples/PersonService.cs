@@ -18,18 +18,26 @@ namespace MissingPeople.Core.Services.Peoples
 {
     public class PersonService : IPersonService
     {
-        
         private readonly IRepositoryBase<Person> repositoryPerson;
+        private readonly IRepositoryBase<DangerOfLife> repositoryDangersOfLife;
+        private readonly IRepositoryBase<PersonDetail> repositoryPersonDetail;
         private readonly ICityService cityService;
         private readonly IPictureService pictureService;
         private readonly IMapper mapper;
 
-        public PersonService(IRepositoryBase<Person> repositoryPerson, IMapper mapper, IPictureService pictureService, ICityService cityService)
+        public PersonService(IRepositoryBase<Person> repositoryPerson,
+                             IMapper mapper,
+                             IPictureService pictureService,
+                             ICityService cityService,
+                             IRepositoryBase<DangerOfLife> repositoryDangersOfLife,
+                             IRepositoryBase<PersonDetail> repositoryPersonDetail)
         {
             this.repositoryPerson = repositoryPerson;
             this.pictureService = pictureService;
             this.mapper = mapper;
             this.cityService = cityService;
+            this.repositoryDangersOfLife = repositoryDangersOfLife;
+            this.repositoryPersonDetail = repositoryPersonDetail;
         }
 
         public async Task<DisplayPersonDetailDto> GetPersonByIdAsync(int id)
@@ -43,7 +51,7 @@ namespace MissingPeople.Core.Services.Peoples
                 .FirstOrDefaultAsync();
 
             var person = new DisplayPersonDetailDto
-            { 
+            {
                 //nie mo¿na zaci¹gn¹æ z pustego obiektu
                 City = entity.DictCity != null ? entity.DictCity.Name : "",
                 Eyes = entity.DictEye != null ? entity.DictEye.Name : "",
@@ -53,14 +61,14 @@ namespace MissingPeople.Core.Services.Peoples
                 Detail = new PersonDetailDto(entity.Detail),
                 DangerOfLife = entity.DangerOfLife.IsAtRisk,
                 Id = entity.Id,
-                Pictures = entity.Pictures.Select(s => pictureService.GetPictureBase64ByName(s.Name))    
+                Pictures = entity.Pictures.Select(s => pictureService.GetPictureBase64ByName(s.Name))
             };
             return person;
         }
 
         public async Task<IEnumerable<DisplayPersonDto>> GetPersonsAsync(int page, int personPerPage)
         {
-            
+
             var entities = repositoryPerson.GetAll()
                  .Include(s => s.DictCity)
                  .Include(s => s.Pictures.Take(1))
@@ -98,10 +106,11 @@ namespace MissingPeople.Core.Services.Peoples
 
             var city = await cityService.GetCityByName(updatingPerson.City);
 
-            if(city !=null) {
+            if (city != null)
+            {
                 entity.DictCityID = city.Id;
             }
-            
+
             entity.DangerOfLife.IsAtRisk = updatingPerson.IsAtRisk;
             entity.Detail.OtherDetails = updatingPerson.OtherDetails;
             entity.DangerOfLife.Description = updatingPerson.RiskDescription;
@@ -112,66 +121,51 @@ namespace MissingPeople.Core.Services.Peoples
 
         }
 
-        //dodaæ foty, miasto i oczy
-        public int AddPerson(Person person, DangerOfLife dangerOfLife, PersonDetail personDetail)
-        {
-            if (person == null){
-                throw new Exception("Person cannot be null");
-            }
-            if (dangerOfLife == null)
-            {
-                throw new Exception("Danger of life cannot be null");
-            }
-            if (personDetail == null)
-            {
-                throw new Exception("Person details cannot be null");
-            }
 
-            person.DangerOfLife = dangerOfLife;
-            person.PersonDetail = personDetail;
+        public async Task<Person> AddPerson(CreatePersonDto createPersonDto)
+        {
+            var person = new Person(){};
+
+            person.Name = createPersonDto.Name;
+            person.Surname = createPersonDto.Surname;
+            person.SecondName = createPersonDto.SecondName;
+            person.YearOfBirth = createPersonDto.YearOfBirth;
+            person.DateOfDisappear = createPersonDto.DateOfDissapear;
+            person.DictCityID = createPersonDto.DictCityID;
+            person.PersonDetail = new()
+            {
+                HeightFrom = createPersonDto.PersonDetails.HeightFrom,
+                HeightTo = createPersonDto.PersonDetails.HeightTo,
+                WeightFrom = createPersonDto.PersonDetails.WeightFrom,
+                WeightTo = createPersonDto.PersonDetails.WeightTo,
+                ClothesDescription = createPersonDto.PersonDetails.ClothesDescription,
+                OtherDetails = createPersonDto.PersonDetails.OtherDetails,
+                TatoosDescription = createPersonDto.PersonDetails.TatoosDescription,
+                ScarsDescription = createPersonDto.PersonDetails.ScarsDescription
+            };
+            person.DangerOfLife = new()
+            {
+                IsAtRisk = createPersonDto.IsAtRisk,
+                Description = createPersonDto.Description
+            };
             
 
-            repositoryPerson.CreateAsync(person);
-            return person.Id;
+
+            await repositoryPerson.CreateAsync(person);
+            return person;
         }
 
-        //mo¿na to zrobiæ w inny sposób - cascade delete fluent API
-        public void DeletePerson(Person person, DangerOfLife dangerOfLife, PersonDetail personDetail)
+        //mo¿na to zrobiæ w inny sposób - cascade delete fluent API, EF domyœlnie usuwa tabele, które s¹ w relacji 1:1
+        public async Task DeletePerson(int personId)
         {
-            if (person == null)
-            {
-                throw new Exception("Person cannot be null");
-            }
-            if (dangerOfLife == null)
-            {
-                throw new Exception("Danger of life cannot be null");
-            }
-            if (personDetail == null)
-            {
-                throw new Exception("Person details cannot be null");
-            }
+            var person = await repositoryPerson.GetByFunc(s => s.Id == personId).Include(s => s.DangerOfLife).FirstOrDefaultAsync();
+            var details = await repositoryPersonDetail.GetByIdAsync(person.PersonDetailID);
 
-            repositoryPerson.DeleteAsync(person);
-            //repositoryPerson.DeleteAsync(dangerOfLife);
-            //repositoryPerson.DeleteAsync(personDetail);
-
-
+            await repositoryPerson.DeleteAsync(person);
 
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
     }
 
 

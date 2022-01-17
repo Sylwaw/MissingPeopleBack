@@ -20,7 +20,8 @@ namespace MissingPeople.Core.Entities.Peoples
         public int? DictCityID { get; set; }
         public int PersonDetailID { get; set; }
         public PersonDetail Detail { get; set; }
-        public DangerOfLife DangerOfLife { get; set; }
+        
+        public DangerOfLife DangerOfLife { get; set; } 
 
         [ForeignKey("DictEyeID")]
         public DictEye DictEye { get; set; }

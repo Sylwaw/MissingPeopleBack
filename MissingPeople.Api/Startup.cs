@@ -39,6 +39,8 @@ namespace MissingPeople.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MissingPeople.Api", Version = "v1" });
             });
+            //services.AddControllers().AddNewtonsoftJson(options =>
+            //options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,5 +70,8 @@ namespace MissingPeople.Api
         {
             cfg.AddProfile<DictCityProfile>();
         }
+
+        
+
     }
 }

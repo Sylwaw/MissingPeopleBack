@@ -4,6 +4,7 @@ using MissingPeople.Core.Interfaces.Repository;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using MissingPeople.Core.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace MissingPeople.Infrastructure.Data.Repository
 {
@@ -31,6 +32,11 @@ namespace MissingPeople.Infrastructure.Data.Repository
         public IQueryable<T> GetAll()
         {
             return this.context.Set<T>();
+        }
+
+        public async Task<T> GetByIdAsync(int id)
+        {
+            return await this.context.Set<T>().FirstOrDefaultAsync(s => s.Id == id);
         }
 
         public IQueryable<T> GetByFunc(Expression<Func<T, bool>> expression)
