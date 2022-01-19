@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MissingPeople.Infrastructure.Data;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -9,9 +10,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MissingPeople.Infrastructure.Migrations
 {
     [DbContext(typeof(MissingPeopleDbContext))]
-    partial class MissingPeopleDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220118234734_delete detail fk from person")]
+    partial class deletedetailfkfromperson
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -248,7 +250,7 @@ namespace MissingPeople.Infrastructure.Migrations
             modelBuilder.Entity("MissingPeople.Core.Entities.Peoples.PersonDetail", b =>
                 {
                     b.HasOne("MissingPeople.Core.Entities.Peoples.Person", "Person")
-                        .WithOne("PersonDetail")
+                        .WithOne("Detail")
                         .HasForeignKey("MissingPeople.Core.Entities.Peoples.PersonDetail", "PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -286,7 +288,7 @@ namespace MissingPeople.Infrastructure.Migrations
                 {
                     b.Navigation("DangerOfLife");
 
-                    b.Navigation("PersonDetail");
+                    b.Navigation("Detail");
 
                     b.Navigation("Pictures");
                 });

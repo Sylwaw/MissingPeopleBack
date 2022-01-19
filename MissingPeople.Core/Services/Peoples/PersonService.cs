@@ -45,7 +45,7 @@ namespace MissingPeople.Core.Services.Peoples
             var entity = await repositoryPerson.GetByFunc(s => s.Id == id)
                 .Include(s => s.DangerOfLife)
                 .Include(s => s.Pictures)
-                .Include(s => s.Detail)
+                .Include(s => s.PersonDetail)
                 .Include(s => s.DictCity)
                 .Include(s => s.DictEye)
                 .FirstOrDefaultAsync();
@@ -58,7 +58,7 @@ namespace MissingPeople.Core.Services.Peoples
                 Name = entity.Name,
                 SecondName = entity.SecondName,
                 Surname = entity.Surname,
-                Detail = new PersonDetailDto(entity.Detail),
+                Detail = new PersonDetailDto(entity.PersonDetail),
                 DangerOfLife = entity.DangerOfLife.IsAtRisk,
                 Id = entity.Id,
                 Pictures = entity.Pictures.Select(s => pictureService.GetPictureBase64ByName(s.Name))
@@ -100,7 +100,7 @@ namespace MissingPeople.Core.Services.Peoples
         {
             var entity = await repositoryPerson.GetByFunc(s => s.Id == id)
                 .Include(s => s.DangerOfLife)
-                .Include(s => s.Detail)
+                .Include(s => s.PersonDetail)
                 .Include(s => s.DictCity)
                 .FirstOrDefaultAsync();
 
@@ -112,7 +112,7 @@ namespace MissingPeople.Core.Services.Peoples
             }
 
             entity.DangerOfLife.IsAtRisk = updatingPerson.IsAtRisk;
-            entity.Detail.OtherDetails = updatingPerson.OtherDetails;
+            entity.PersonDetail.OtherDetails = updatingPerson.OtherDetails;
             entity.DangerOfLife.Description = updatingPerson.RiskDescription;
 
             await repositoryPerson.UpdateAsync(entity);
@@ -124,30 +124,37 @@ namespace MissingPeople.Core.Services.Peoples
 
         public async Task<Person> AddPerson(CreatePersonDto createPersonDto)
         {
-            var person = new Person(){};
+            var person =  new Person {
+                Name = createPersonDto.Name,
+                Surname = createPersonDto.Surname,
+                SecondName = createPersonDto.SecondName,
+                YearOfBirth = createPersonDto.YearOfBirth,
+                DateOfDisappear = createPersonDto.DateOfDissapear,
+                DictCityID = createPersonDto.DictCityID,
+                DictEyeID = createPersonDto.DictEyeID,
+                PersonDetail = new()
+                {
+                    Id = createPersonDto.PersonDetailId,
+                    HeightFrom = createPersonDto.HeightFrom,
+                    HeightTo = createPersonDto.HeightTo,
+                    WeightFrom = createPersonDto.WeightFrom,
+                    WeightTo = createPersonDto.WeightTo,
+                    ClothesDescription = createPersonDto.ClothesDescription,
+                    OtherDetails = createPersonDto.OtherDetails,
+                    TatoosDescription = createPersonDto.TatoosDescription,
+                    ScarsDescription = createPersonDto.ScarsDescription
+                },
+                DangerOfLife = new()
+                {
+                    Id = createPersonDto.DangerOfLifeId,
+                    IsAtRisk = createPersonDto.IsAtRisk,
+                    Description = createPersonDto.Description
+                }
+            };
 
-            person.Name = createPersonDto.Name;
-            person.Surname = createPersonDto.Surname;
-            person.SecondName = createPersonDto.SecondName;
-            person.YearOfBirth = createPersonDto.YearOfBirth;
-            person.DateOfDisappear = createPersonDto.DateOfDissapear;
-            person.DictCityID = createPersonDto.DictCityID;
-            person.PersonDetail = new()
-            {
-                HeightFrom = createPersonDto.PersonDetails.HeightFrom,
-                HeightTo = createPersonDto.PersonDetails.HeightTo,
-                WeightFrom = createPersonDto.PersonDetails.WeightFrom,
-                WeightTo = createPersonDto.PersonDetails.WeightTo,
-                ClothesDescription = createPersonDto.PersonDetails.ClothesDescription,
-                OtherDetails = createPersonDto.PersonDetails.OtherDetails,
-                TatoosDescription = createPersonDto.PersonDetails.TatoosDescription,
-                ScarsDescription = createPersonDto.PersonDetails.ScarsDescription
-            };
-            person.DangerOfLife = new()
-            {
-                IsAtRisk = createPersonDto.IsAtRisk,
-                Description = createPersonDto.Description
-            };
+            
+
+            //jak nie przypisujê rêcznie id to sa 0!!!!
             
 
 
@@ -159,7 +166,7 @@ namespace MissingPeople.Core.Services.Peoples
         public async Task DeletePerson(int personId)
         {
             var person = await repositoryPerson.GetByFunc(s => s.Id == personId).Include(s => s.DangerOfLife).FirstOrDefaultAsync();
-            var details = await repositoryPersonDetail.GetByIdAsync(person.PersonDetailID);
+            var details = await repositoryPersonDetail.GetByIdAsync(person.PersonDetail.Id);
 
             await repositoryPerson.DeleteAsync(person);
 

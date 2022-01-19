@@ -9,10 +9,10 @@ namespace MissingPeople.Core.Dtos.Peoples
         public int? HeightTo { get; set; }
         public int? WeightFrom { get; set; }
         public int? WeightTo { get; set; }
-        public string? OtherDetails { get; set; }
-        public string? ClothesDescription { get; set; }
-        public string? TatoosDescription { get; set; }
-        public string? ScarsDescription { get; set; }
+        public string OtherDetails { get; set; }
+        public string ClothesDescription { get; set; }
+        public string TatoosDescription { get; set; }
+        public string ScarsDescription { get; set; }
 
 
         [JsonConstructor]
