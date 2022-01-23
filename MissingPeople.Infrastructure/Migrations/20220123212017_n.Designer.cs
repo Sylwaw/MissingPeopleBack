@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MissingPeople.Infrastructure.Migrations
 {
     [DbContext(typeof(MissingPeopleDbContext))]
-    [Migration("20220118234734_delete detail fk from person")]
-    partial class deletedetailfkfromperson
+    [Migration("20220123212017_n")]
+    partial class n
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -250,7 +250,7 @@ namespace MissingPeople.Infrastructure.Migrations
             modelBuilder.Entity("MissingPeople.Core.Entities.Peoples.PersonDetail", b =>
                 {
                     b.HasOne("MissingPeople.Core.Entities.Peoples.Person", "Person")
-                        .WithOne("Detail")
+                        .WithOne("PersonDetail")
                         .HasForeignKey("MissingPeople.Core.Entities.Peoples.PersonDetail", "PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -288,7 +288,7 @@ namespace MissingPeople.Infrastructure.Migrations
                 {
                     b.Navigation("DangerOfLife");
 
-                    b.Navigation("Detail");
+                    b.Navigation("PersonDetail");
 
                     b.Navigation("Pictures");
                 });

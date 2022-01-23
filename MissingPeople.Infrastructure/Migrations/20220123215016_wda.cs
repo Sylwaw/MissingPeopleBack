@@ -2,7 +2,7 @@
 
 namespace MissingPeople.Infrastructure.Migrations
 {
-    public partial class NullableRiskDesc : Migration
+    public partial class wda : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

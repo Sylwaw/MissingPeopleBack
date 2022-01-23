@@ -2,7 +2,7 @@
 
 namespace MissingPeople.Infrastructure.Migrations
 {
-    public partial class detailbugfix : Migration
+    public partial class sds : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

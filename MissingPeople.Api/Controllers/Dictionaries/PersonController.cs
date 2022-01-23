@@ -17,12 +17,12 @@ namespace MissingPeople.Api.Controllers.Dictionaries
     
     [Route("api/[controller]")]
     [ApiController]
-    public class PersonController : Controller
+    public class PersonController : ControllerBase
     {
         private readonly IPersonService personService;
         private readonly IPersonDetailService personDetailService;
         private readonly IDangerOfLifeService dangerOfLifeService;
-        private const int PERSON_PER_PAGE = 10; // liczba wyswietlanych osob na stronie
+        private const int PERSON_PER_PAGE = 4; // liczba wyswietlanych osob na stronie
 
         public PersonController(IPersonService personService, IPersonDetailService personDetailService, IDangerOfLifeService dangerOfLifeService)
         {
@@ -38,9 +38,10 @@ namespace MissingPeople.Api.Controllers.Dictionaries
         }
 
         [HttpGet("getAllPeople")]
-        public async Task<ActionResult<DisplayPersonDto>> GetAllPeople([FromQuery] int page)
+        public async Task<ActionResult<DisplayPersonDto>> GetAllPeople(int page)
         {
-            return new JsonResult(await personService.GetPersonsAsync(page, PERSON_PER_PAGE));
+            var result = new JsonResult(await personService.GetPersonsAsync(page, PERSON_PER_PAGE));
+            return result;
         }
 
         [HttpPut("updatePerson")]
@@ -58,9 +59,11 @@ namespace MissingPeople.Api.Controllers.Dictionaries
         }
 
         [HttpPost("createPerson")]
-        public async Task<ActionResult<CreatePersonDto>> PostPerson(CreatePersonDto createPersonDto)
+        public async Task<IActionResult> PostPerson(CreatePersonDto createPersonDto)
         {
-            return new JsonResult(await personService.AddPerson(createPersonDto));
+            var person = await personService.AddPerson(createPersonDto);
+
+            return new JsonResult(person.Id);
         }
 
 

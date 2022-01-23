@@ -134,7 +134,7 @@ namespace MissingPeople.Core.Services.Peoples
                 DictEyeID = createPersonDto.DictEyeID,
                 PersonDetail = new()
                 {
-                    Id = createPersonDto.PersonDetailId,
+                    //Id = createPersonDto.PersonDetailId,
                     HeightFrom = createPersonDto.HeightFrom,
                     HeightTo = createPersonDto.HeightTo,
                     WeightFrom = createPersonDto.WeightFrom,
@@ -146,7 +146,6 @@ namespace MissingPeople.Core.Services.Peoples
                 },
                 DangerOfLife = new()
                 {
-                    Id = createPersonDto.DangerOfLifeId,
                     IsAtRisk = createPersonDto.IsAtRisk,
                     Description = createPersonDto.Description
                 }
@@ -166,7 +165,7 @@ namespace MissingPeople.Core.Services.Peoples
         public async Task DeletePerson(int personId)
         {
             var person = await repositoryPerson.GetByFunc(s => s.Id == personId).Include(s => s.DangerOfLife).FirstOrDefaultAsync();
-            var details = await repositoryPersonDetail.GetByIdAsync(person.PersonDetail.Id);
+            //var details = await repositoryPersonDetail.GetByIdAsync(person.PersonDetail.Id);
 
             await repositoryPerson.DeleteAsync(person);
 

@@ -15,10 +15,17 @@ namespace MissingPeople.Api.Controllers.Dictionaries
             this.cityService = cityService;
         }
 
+        //zwraca listê miast, ktorych nazwy zaczynaj¹ siê od wprowadzonej wartoœci
         [HttpGet("citiesByIncludeSource")]
         public async Task<ActionResult<IEnumerable<CityDto>>> GetCitiesByIncludeSource(string value)
         {
             return new JsonResult(await cityService.GetCitiesByIncludeSourceAsync(value));
+        }
+
+        [HttpGet("cityByName")]
+        public async Task<ActionResult<CityDto>> GetCityByName(string value)
+        {
+            return new JsonResult(await cityService.GetCityByName(value));
         }
     }
 }
