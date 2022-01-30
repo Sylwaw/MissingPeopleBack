@@ -13,5 +13,7 @@ namespace MissingPeople.Core.Interfaces.Dictionaries
         /// <returns></returns>
         Task<IEnumerable<CityDto>> GetCitiesByIncludeSourceAsync(string value);
         Task<CityDto> GetCityByName(string nameCity);
+
+        Task<CityDto> GetCityByID(int id);
     }
 }

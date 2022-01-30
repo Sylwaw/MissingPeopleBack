@@ -22,10 +22,17 @@ namespace MissingPeople.Api.Controllers.Dictionaries
             return new JsonResult(await cityService.GetCitiesByIncludeSourceAsync(value));
         }
 
+        //zwraca id miasta po nazwie
         [HttpGet("cityByName")]
         public async Task<ActionResult<CityDto>> GetCityByName(string value)
         {
             return new JsonResult(await cityService.GetCityByName(value));
+        }
+
+        [HttpGet("cityById")]
+        public async Task<ActionResult<CityDto>> GetCityById(int id)
+        {
+            return new JsonResult(await cityService.GetCityByID(id));
         }
     }
 }

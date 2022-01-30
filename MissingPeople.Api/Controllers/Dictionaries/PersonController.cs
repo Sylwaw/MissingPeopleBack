@@ -22,7 +22,7 @@ namespace MissingPeople.Api.Controllers.Dictionaries
         private readonly IPersonService personService;
         private readonly IPersonDetailService personDetailService;
         private readonly IDangerOfLifeService dangerOfLifeService;
-        private const int PERSON_PER_PAGE = 4; // liczba wyswietlanych osob na stronie
+        private const int PERSON_PER_PAGE = 1200; // liczba wyswietlanych osob na stronie
 
         public PersonController(IPersonService personService, IPersonDetailService personDetailService, IDangerOfLifeService dangerOfLifeService)
         {

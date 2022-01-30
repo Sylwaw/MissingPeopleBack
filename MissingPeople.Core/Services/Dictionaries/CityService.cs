@@ -34,5 +34,11 @@ namespace MissingPeople.Core.Services.Dictionaries
 
             return mapper.Map<CityDto>(city);
         }
+
+        public async Task<CityDto> GetCityByID(int id)
+        {
+            var city = await repository.GetByFunc(s => s.Id == id).FirstOrDefaultAsync(); 
+            return mapper.Map<CityDto>(city);
+        }
     }
 }

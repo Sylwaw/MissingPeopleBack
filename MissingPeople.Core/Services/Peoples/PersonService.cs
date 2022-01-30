@@ -84,10 +84,12 @@ namespace MissingPeople.Core.Services.Peoples
                 var person = new DisplayPersonDto
                 {
                     Id = entity.Id,
+                    YearOfBirth = entity.YearOfBirth,
                     City = entity.DictCity != null ? entity.DictCity.Name : "",
                     Name = entity.Name,
                     Surname = entity.Surname,
-                    Picture = pictureService.GetPictureBase64ByName(entity.Pictures.FirstOrDefault().Name)
+                    //Picture = pictureService.GetPictureBase64ByName(entity.Pictures.FirstOrDefault().Name)
+                    Picture = entity.Pictures.FirstOrDefault().Name
                 };
 
                 models.Add(person);
