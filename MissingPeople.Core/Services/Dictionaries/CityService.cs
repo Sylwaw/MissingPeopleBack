@@ -27,6 +27,18 @@ namespace MissingPeople.Core.Services.Dictionaries
 
             return mapper.Map<IEnumerable<CityDto>>(await cities.ToListAsync());
         }
-        //gdzie to doda³eœ ten serwis?
+
+        public async Task<CityDto> GetCityByName(string nameCity)
+        {
+            var city = await repository.GetByFunc(s => s.Name == nameCity).FirstOrDefaultAsync();
+
+            return mapper.Map<CityDto>(city);
+        }
+
+        public async Task<CityDto> GetCityByID(int id)
+        {
+            var city = await repository.GetByFunc(s => s.Id == id).FirstOrDefaultAsync(); 
+            return mapper.Map<CityDto>(city);
+        }
     }
 }

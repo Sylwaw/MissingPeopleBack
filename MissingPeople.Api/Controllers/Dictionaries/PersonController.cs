@@ -17,14 +17,18 @@ namespace MissingPeople.Api.Controllers.Dictionaries
     
     [Route("api/[controller]")]
     [ApiController]
-    public class PersonController : Controller
+    public class PersonController : ControllerBase
     {
         private readonly IPersonService personService;
-        private const int PERSON_PER_PAGE = 10; // liczba wyswietlanych osob na stronie
+        private readonly IPersonDetailService personDetailService;
+        private readonly IDangerOfLifeService dangerOfLifeService;
+        private const int PERSON_PER_PAGE = 1200; // liczba wyswietlanych osob na stronie
 
-        public PersonController(IPersonService personService)
+        public PersonController(IPersonService personService, IPersonDetailService personDetailService, IDangerOfLifeService dangerOfLifeService)
         {
             this.personService = personService;
+            this.dangerOfLifeService = dangerOfLifeService;
+            this.personDetailService = personDetailService;
         }
 
         [HttpGet("peopleByID")]
@@ -34,102 +38,34 @@ namespace MissingPeople.Api.Controllers.Dictionaries
         }
 
         [HttpGet("getAllPeople")]
-        public async Task<ActionResult<DisplayPersonDto>> GetAllPeople([FromQuery] int page)
+        public async Task<ActionResult<DisplayPersonDto>> GetAllPeople(int page)
         {
-            return new JsonResult(await personService.GetPersonsAsync(page, PERSON_PER_PAGE));
+            var result = new JsonResult(await personService.GetPersonsAsync(page, PERSON_PER_PAGE));
+            return result;
+        }
+
+        [HttpPut("updatePerson")]
+        public async Task<ActionResult<UpdatePersonDto>> PutPeopleById(UpdatePersonDto updatePerson, int id)
+        {
+            var result = await personService.UpdatePersonByIdAsync(updatePerson, id);
+            return Ok();
+        }
+
+        [HttpDelete("deletePerson")]
+        public async Task<IActionResult> DeletePeopleById(int id)
+        {
+            await personService.DeletePerson(id);
+            return Accepted();
+        }
+
+        [HttpPost("createPerson")]
+        public async Task<IActionResult> PostPerson(CreatePersonDto createPersonDto)
+        {
+            var person = await personService.AddPerson(createPersonDto);
+
+            return new JsonResult(person.Id);
         }
 
 
-        //    private readonly MissingPeopleDbContext _context;
-
-        //    public PeopleController(MissingPeopleDbContext context)
-        //    {
-        //        _context = context;
-        //    }
-
-        //    // GET: api/People
-        //    [HttpGet]
-        //    public async Task<ActionResult<IEnumerable<Person>>> GetPeople()
-        //    {
-        //        return await _context.People.ToListAsync();
-        //    }
-
-        //    // GET: api/People/5
-        //    [HttpGet("{id}")]
-        //    public async Task<ActionResult<Person>> GetPerson(int id)
-        //    {
-        //        var person = await _context.People.FindAsync(id);
-
-        //        if (person == null)
-        //        {
-        //            return NotFound();
-        //        }
-
-        //        return person;
-        //    }
-
-        //    // PUT: api/People/5
-        //    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //    [HttpPut("{id}")]
-        //    public async Task<IActionResult> PutPerson(int id, Person person)
-        //    {
-        //        if (id != person.Id)
-        //        {
-        //            return BadRequest();
-        //        }
-
-        //        _context.Entry(person).State = EntityState.Modified;
-
-        //        try
-        //        {
-        //            await _context.SaveChangesAsync();
-        //        }
-        //        catch (DbUpdateConcurrencyException)
-        //        {
-        //            if (!PersonExists(id))
-        //            {
-        //                return NotFound();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
-        //        }
-
-        //        return NoContent();
-        //    }
-
-        //    // POST: api/People
-        //    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //    [HttpPost]
-        //    public async Task<ActionResult<Person>> PostPerson(Person person)
-        //    {
-        //        _context.People.Add(person);
-        //        await _context.SaveChangesAsync();
-
-        //        return CreatedAtAction("GetPerson", new { id = person.Id }, person);
-        //    }
-
-        //    // DELETE: api/People/5
-        //    [HttpDelete("{id}")]
-        //    public async Task<IActionResult> DeletePerson(int id)
-        //    {
-        //        var person = await _context.People.FindAsync(id);
-        //        if (person == null)
-        //        {
-        //            return NotFound();
-        //        }
-
-        //        _context.People.Remove(person);
-        //        await _context.SaveChangesAsync();
-
-        //        return NoContent();
-        //    }
-
-        //    private bool PersonExists(int id)
-        //    {
-        //        return _context.People.Any(e => e.Id == id);
-        //    }
-        //}
     }
 }

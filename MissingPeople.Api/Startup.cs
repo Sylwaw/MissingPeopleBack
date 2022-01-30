@@ -32,6 +32,13 @@ namespace MissingPeople.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.ServiceCollection();
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowAnyOrigin();
+            }));
             services.AddDbContext<MissingPeopleDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")), ServiceLifetime.Transient);
             services.AddSingleton<IMapper>(_ => new MapperConfiguration((s) => ConfigureMapper(s)).CreateMapper());
             services.AddControllers();
@@ -39,12 +46,15 @@ namespace MissingPeople.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MissingPeople.Api", Version = "v1" });
             });
+            //services.AddControllers().AddNewtonsoftJson(options =>
+            //options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, MissingPeopleDbContext dbContext)
         {
             dbContext.Database.EnsureCreated(); // jezeli nie ma bazy danych to zostaje utworzona
+            app.UseCors("CorsPolicy");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -68,5 +78,8 @@ namespace MissingPeople.Api
         {
             cfg.AddProfile<DictCityProfile>();
         }
+
+        
+
     }
 }

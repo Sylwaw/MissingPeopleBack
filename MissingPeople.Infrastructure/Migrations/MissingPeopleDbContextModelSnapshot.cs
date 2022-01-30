@@ -16,7 +16,7 @@ namespace MissingPeople.Infrastructure.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
-                .HasAnnotation("ProductVersion", "5.0.12")
+                .HasAnnotation("ProductVersion", "5.0.13")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
             modelBuilder.Entity("MissingPeople.Core.Entities.Dictionaries.DictCity", b =>
@@ -30,6 +30,12 @@ namespace MissingPeople.Infrastructure.Migrations
                         .HasColumnType("double precision");
 
                     b.Property<double>("CordinateY")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("DecimalLatitude")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("DecimalLongitude")
                         .HasColumnType("double precision");
 
                     b.Property<int>("IdentifierTeryt")
@@ -72,7 +78,9 @@ namespace MissingPeople.Infrastructure.Migrations
             modelBuilder.Entity("MissingPeople.Core.Entities.Dictionaries.DictProvince", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("integer");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
@@ -87,6 +95,7 @@ namespace MissingPeople.Infrastructure.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
+                        .HasIdentityOptions(1274L, null, null, null, null, null)
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Description")
@@ -111,9 +120,10 @@ namespace MissingPeople.Infrastructure.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
+                        .HasIdentityOptions(1274L, null, null, null, null, null)
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<DateTime>("DateOfDisappear")
+                    b.Property<DateTime?>("DateOfDisappear")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<int?>("DictCityID")
@@ -151,15 +161,16 @@ namespace MissingPeople.Infrastructure.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
+                        .HasIdentityOptions(1274L, null, null, null, null, null)
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("ClothesDescription")
                         .HasColumnType("text");
 
-                    b.Property<int>("HeightFrom")
+                    b.Property<int?>("HeightFrom")
                         .HasColumnType("integer");
 
-                    b.Property<int>("HeightTo")
+                    b.Property<int?>("HeightTo")
                         .HasColumnType("integer");
 
                     b.Property<string>("OtherDetails")
@@ -174,10 +185,10 @@ namespace MissingPeople.Infrastructure.Migrations
                     b.Property<string>("TatoosDescription")
                         .HasColumnType("text");
 
-                    b.Property<int>("WeightFrom")
+                    b.Property<int?>("WeightFrom")
                         .HasColumnType("integer");
 
-                    b.Property<int>("WeightTo")
+                    b.Property<int?>("WeightTo")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -248,7 +259,7 @@ namespace MissingPeople.Infrastructure.Migrations
             modelBuilder.Entity("MissingPeople.Core.Entities.Peoples.PersonDetail", b =>
                 {
                     b.HasOne("MissingPeople.Core.Entities.Peoples.Person", "Person")
-                        .WithOne("Detail")
+                        .WithOne("PersonDetail")
                         .HasForeignKey("MissingPeople.Core.Entities.Peoples.PersonDetail", "PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -286,7 +297,7 @@ namespace MissingPeople.Infrastructure.Migrations
                 {
                     b.Navigation("DangerOfLife");
 
-                    b.Navigation("Detail");
+                    b.Navigation("PersonDetail");
 
                     b.Navigation("Pictures");
                 });

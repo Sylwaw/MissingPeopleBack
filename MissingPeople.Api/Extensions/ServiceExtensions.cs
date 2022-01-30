@@ -13,10 +13,12 @@ namespace MissingPeople.Api.Extensions
     public static class ServiceExtensions
     {
         public static void ServiceCollection(this IServiceCollection service) {
-            service.AddScoped(typeof(IRepositoryBase<>),typeof(RepositoryBase<>));
+            service.AddTransient(typeof(IRepositoryBase<>),typeof(RepositoryBase<>));
             service.AddScoped<IPersonService,PersonService>();
             service.AddScoped<IPictureService,PictureService>();
             service.AddScoped<ICityService, CityService>();
+            service.AddScoped<IPersonDetailService, PersonDetailService>();
+            service.AddScoped<IDangerOfLifeService, DangerOfLifeService>();
             
         }
     }

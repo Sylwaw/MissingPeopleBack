@@ -1,24 +1,26 @@
 using MissingPeople.Core.Entities.Peoples;
+using System.Text.Json.Serialization;
 
 namespace MissingPeople.Core.Dtos.Peoples
 {
     public class PersonDetailDto
     {
-        public int HeightFrom { get; set; }
-        public int HeightTo { get; set; }
-        public int WeightFrom { get; set; }
-        public int WeightTo { get; set; }
+        public int? HeightFrom { get; set; }
+        public int? HeightTo { get; set; }
+        public int? WeightFrom { get; set; }
+        public int? WeightTo { get; set; }
         public string OtherDetails { get; set; }
         public string ClothesDescription { get; set; }
         public string TatoosDescription { get; set; }
         public string ScarsDescription { get; set; }
 
 
-
+        [JsonConstructor]
+        public PersonDetailDto() { }
 
         public PersonDetailDto(PersonDetail personDetail)
-        {
-            HeightFrom = personDetail.HeightFrom;
+        { 
+            HeightFrom = personDetail.HeightFrom; 
             HeightTo = personDetail.HeightTo;
             WeightFrom = personDetail.WeightFrom;
             WeightTo = personDetail.WeightTo;
@@ -27,5 +29,7 @@ namespace MissingPeople.Core.Dtos.Peoples
             TatoosDescription = personDetail.TatoosDescription;
             ScarsDescription = personDetail.ScarsDescription;
         }
-    }
+
+    
+}
 }

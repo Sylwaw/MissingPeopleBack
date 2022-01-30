@@ -12,6 +12,7 @@ namespace MissingPeople.Core.Interfaces.Repository
         Task CreateAsync(T entity);
         Task DeleteAsync(T entity);
         IQueryable<T> GetAll();
+        Task<T> GetByIdAsync(int id);
         IQueryable<T> GetByFunc(Expression<Func<T, bool>> expression);
         Task UpdateAsync(T entity);
     }
