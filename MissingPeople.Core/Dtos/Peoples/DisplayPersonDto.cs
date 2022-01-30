@@ -7,6 +7,6 @@ namespace MissingPeople.Core.Dtos.Peoples
         public string Name { get; set; }
         public string Surname { get; set; }
         public string City { get; set; }
-        public string Picture { get; set; }
+        public string? Picture { get; set; }
     }
 }

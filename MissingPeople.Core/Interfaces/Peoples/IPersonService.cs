@@ -11,7 +11,8 @@ namespace MissingPeople.Core.Interfaces.Peoples
     public interface IPersonService
     {
         Task<DisplayPersonDetailDto> GetPersonByIdAsync(int id);
-        Task<IEnumerable<DisplayPersonDto>> GetPersonsAsync(int page, int personPerPage);
+        //Task<IEnumerable<DisplayPersonDto>> GetPersonsAsync(int page, int personPerPage);
+        Task<IEnumerable<DisplayPersonDto>> GetPersonsAsync();
         Task<Person> UpdatePersonByIdAsync(UpdatePersonDto updatedPerson, int id);
         Task<Person> AddPerson(CreatePersonDto createPersonDto);
         Task DeletePerson(int personId);

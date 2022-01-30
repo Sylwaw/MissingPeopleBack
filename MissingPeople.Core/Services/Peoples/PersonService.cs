@@ -60,20 +60,54 @@ namespace MissingPeople.Core.Services.Peoples
                 Surname = entity.Surname,
                 Detail = new PersonDetailDto(entity.PersonDetail),
                 DangerOfLife = entity.DangerOfLife.IsAtRisk,
+                Description = entity.DangerOfLife.Description,
+                DateOfDisappear = entity.DateOfDisappear,
+                YearOfBirth = entity.YearOfBirth,
                 Id = entity.Id,
-                Pictures = entity.Pictures.Select(s => pictureService.GetPictureBase64ByName(s.Name))
+                Pictures = entity.Pictures.Select(s => s.Name),
+                
             };
             return person;
         }
 
-        public async Task<IEnumerable<DisplayPersonDto>> GetPersonsAsync(int page, int personPerPage)
+        //public async Task<IEnumerable<DisplayPersonDto>> GetPersonsAsync(int page, int personPerPage)
+        //{
+
+        //    var entities = repositoryPerson.GetAll()
+        //         .Include(s => s.DictCity)
+        //         .Include(s => s.Pictures.Take(1))
+        //         .Skip(page * personPerPage)
+        //         .Take(personPerPage);
+
+        //    var persons = await entities.ToListAsync();
+
+        //    ICollection<DisplayPersonDto> models = new List<DisplayPersonDto>();
+
+        //    foreach (var entity in persons)
+        //    {
+        //        var person = new DisplayPersonDto
+        //        {
+        //            Id = entity.Id,
+        //            YearOfBirth = entity.YearOfBirth,
+        //            City = entity.DictCity != null ? entity.DictCity.Name : "",
+        //            Name = entity.Name,
+        //            Surname = entity.Surname,
+        //            //Picture = pictureService.GetPictureBase64ByName(entity.Pictures.FirstOrDefault().Name)
+        //            Picture = entity.Pictures.FirstOrDefault().Name
+        //        };
+
+        //        models.Add(person);
+        //    }
+
+        //    return models;
+        //}
+
+        public async Task<IEnumerable<DisplayPersonDto>> GetPersonsAsync()
         {
 
             var entities = repositoryPerson.GetAll()
                  .Include(s => s.DictCity)
-                 .Include(s => s.Pictures.Take(1))
-                 .Skip(page * personPerPage)
-                 .Take(personPerPage);
+                 .Include(s => s.Pictures.Take(1));
 
             var persons = await entities.ToListAsync();
 
@@ -89,7 +123,7 @@ namespace MissingPeople.Core.Services.Peoples
                     Name = entity.Name,
                     Surname = entity.Surname,
                     //Picture = pictureService.GetPictureBase64ByName(entity.Pictures.FirstOrDefault().Name)
-                    Picture = entity.Pictures.FirstOrDefault().Name
+                    Picture = entity.Pictures.Count() != 0 ? entity.Pictures.FirstOrDefault().Name : ""
                 };
 
                 models.Add(person);
@@ -126,6 +160,8 @@ namespace MissingPeople.Core.Services.Peoples
 
         public async Task<Person> AddPerson(CreatePersonDto createPersonDto)
         {
+            createPersonDto.IsAtRisk = false;
+            createPersonDto.IsWaiting = true;
             var person =  new Person {
                 Name = createPersonDto.Name,
                 Surname = createPersonDto.Surname,
@@ -134,6 +170,7 @@ namespace MissingPeople.Core.Services.Peoples
                 DateOfDisappear = createPersonDto.DateOfDissapear,
                 DictCityID = createPersonDto.DictCityID,
                 DictEyeID = createPersonDto.DictEyeID,
+                IsWaiting = createPersonDto.IsWaiting,
                 PersonDetail = new()
                 {
                     //Id = createPersonDto.PersonDetailId,

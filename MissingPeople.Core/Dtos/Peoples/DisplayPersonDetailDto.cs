@@ -12,6 +12,9 @@ namespace MissingPeople.Core.Dtos.Peoples
         public string City { get; set; }
         public PersonDetailDto Detail { get; set; }
         public bool DangerOfLife { get; set; }
+        public string Description { get; set; }
+        public System.DateTime? DateOfDisappear { get; set; }
+        public int YearOfBirth { get; set; }
         public string Eyes { get; set; }
         public IEnumerable<string> Pictures { get; set; }
         

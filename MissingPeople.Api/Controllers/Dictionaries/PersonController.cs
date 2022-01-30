@@ -22,7 +22,8 @@ namespace MissingPeople.Api.Controllers.Dictionaries
         private readonly IPersonService personService;
         private readonly IPersonDetailService personDetailService;
         private readonly IDangerOfLifeService dangerOfLifeService;
-        private const int PERSON_PER_PAGE = 1200; // liczba wyswietlanych osob na stronie
+        private const int PERSON_PER_
+            = 1200; // liczba wyswietlanych osob na stronie
 
         public PersonController(IPersonService personService, IPersonDetailService personDetailService, IDangerOfLifeService dangerOfLifeService)
         {
@@ -37,10 +38,17 @@ namespace MissingPeople.Api.Controllers.Dictionaries
             return new JsonResult(await personService.GetPersonByIdAsync(id)); 
         }
 
+        //[HttpGet("getAllPeople")]
+        //public async Task<ActionResult<DisplayPersonDto>> GetAllPeople(int page)
+        //{
+        //    var result = new JsonResult(await personService.GetPersonsAsync(page, PERSON_PER_PAGE));
+        //    return result;
+        //}
+
         [HttpGet("getAllPeople")]
-        public async Task<ActionResult<DisplayPersonDto>> GetAllPeople(int page)
+        public async Task<ActionResult<DisplayPersonDto>> GetAllPeople()
         {
-            var result = new JsonResult(await personService.GetPersonsAsync(page, PERSON_PER_PAGE));
+            var result = new JsonResult(await personService.GetPersonsAsync());
             return result;
         }
 
