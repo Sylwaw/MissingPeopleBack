@@ -30,7 +30,7 @@ namespace MissingPeople.Core.Services.Dictionaries
 
         public async Task<CityDto> GetCityByName(string nameCity)
         {
-            var city = await repository.GetByFunc(s => s.Name == nameCity).FirstOrDefaultAsync();
+            var city = await repository.GetByFunc(s => s.Name.ToLower() == nameCity).FirstOrDefaultAsync();
 
             return mapper.Map<CityDto>(city);
         }

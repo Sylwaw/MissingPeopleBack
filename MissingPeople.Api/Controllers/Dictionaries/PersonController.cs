@@ -14,7 +14,7 @@ using MissingPeople.Core.Extensions;
 
 namespace MissingPeople.Api.Controllers.Dictionaries
 {
-    
+
     [Route("api/[controller]")]
     [ApiController]
     public class PersonController : ControllerBase
@@ -32,18 +32,12 @@ namespace MissingPeople.Api.Controllers.Dictionaries
             this.personDetailService = personDetailService;
         }
 
-        [HttpGet("peopleByID")]
+        [HttpGet("peopleByID/{id}")]
         public async Task<ActionResult<DisplayPersonDetailDto>> GetPeopleByID(int id)
         {
-            return new JsonResult(await personService.GetPersonByIdAsync(id)); 
+            return new JsonResult(await personService.GetPersonByIdAsync(id));
         }
 
-        //[HttpGet("getAllPeople")]
-        //public async Task<ActionResult<DisplayPersonDto>> GetAllPeople(int page)
-        //{
-        //    var result = new JsonResult(await personService.GetPersonsAsync(page, PERSON_PER_PAGE));
-        //    return result;
-        //}
 
         [HttpGet("getAllPeople")]
         public async Task<ActionResult<DisplayPersonDto>> GetAllPeople()
@@ -67,7 +61,7 @@ namespace MissingPeople.Api.Controllers.Dictionaries
         }
 
         [HttpPost("createPerson")]
-        public async Task<IActionResult> PostPerson(CreatePersonDto createPersonDto)
+        public async Task<IActionResult> PostPerson([FromBody] CreatePersonDto createPersonDto)
         {
             var person = await personService.AddPerson(createPersonDto);
 

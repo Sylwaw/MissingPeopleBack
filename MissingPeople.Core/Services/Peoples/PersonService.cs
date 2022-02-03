@@ -58,7 +58,15 @@ namespace MissingPeople.Core.Services.Peoples
                 Name = entity.Name,
                 SecondName = entity.SecondName,
                 Surname = entity.Surname,
-                Detail = new PersonDetailDto(entity.PersonDetail),
+                //Detail = new PersonDetailDto(entity.PersonDetail),
+                HeightFrom = entity.PersonDetail.HeightFrom,
+                HeightTo = entity.PersonDetail.HeightFrom,
+                WeightFrom = entity.PersonDetail.WeightFrom,
+                WeightTo = entity.PersonDetail.WeightTo,
+                OtherDetails = entity.PersonDetail.OtherDetails,
+                ClothesDescription = entity.PersonDetail.ClothesDescription,
+                TatoosDescription = entity.PersonDetail.TatoosDescription,
+                ScarsDescription = entity.PersonDetail.ScarsDescription,
                 DangerOfLife = entity.DangerOfLife.IsAtRisk,
                 Description = entity.DangerOfLife.Description,
                 DateOfDisappear = entity.DateOfDisappear,
@@ -107,7 +115,8 @@ namespace MissingPeople.Core.Services.Peoples
 
             var entities = repositoryPerson.GetAll()
                  .Include(s => s.DictCity)
-                 .Include(s => s.Pictures.Take(1));
+                 .Include(s => s.Pictures.Take(1))
+                 .Include(s => s.DangerOfLife);
 
             var persons = await entities.ToListAsync();
 
@@ -123,7 +132,12 @@ namespace MissingPeople.Core.Services.Peoples
                     Name = entity.Name,
                     Surname = entity.Surname,
                     //Picture = pictureService.GetPictureBase64ByName(entity.Pictures.FirstOrDefault().Name)
-                    Picture = entity.Pictures.Count() != 0 ? entity.Pictures.FirstOrDefault().Name : ""
+                    Picture = entity.Pictures.Count() != 0 ? entity.Pictures.FirstOrDefault().Name : "",
+                    IsAtRisk = entity.DangerOfLife.IsAtRisk,
+                    Description = entity.DangerOfLife.Description,
+                    DecimalLatitude = entity.DictCity != null ? entity.DictCity.DecimalLatitude : 0,
+                    DecimalLongitude = entity.DictCity != null ? entity.DictCity.DecimalLongitude : 0,
+                    DateOfDisappear = entity.DateOfDisappear
                 };
 
                 models.Add(person);
