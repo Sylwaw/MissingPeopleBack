@@ -37,5 +37,12 @@ namespace MissingPeople.Api.Controllers.Dictionaries
         {
             return new JsonResult(await cityService.GetCityByID(id));
         }
+
+        [HttpGet("cityByNameAndProvince")]
+        public async Task<ActionResult<CityDto>> GetCityByNameAndProvince(string province)
+        {
+            return new JsonResult(await cityService.GetCityByNameAndProvince(province));
+        }
+
     }
 }

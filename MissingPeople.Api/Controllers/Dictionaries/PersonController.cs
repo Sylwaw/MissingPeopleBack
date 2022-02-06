@@ -47,7 +47,7 @@ namespace MissingPeople.Api.Controllers.Dictionaries
         }
 
         [HttpPut("updatePerson")]
-        public async Task<ActionResult<UpdatePersonDto>> PutPeopleById(UpdatePersonDto updatePerson, int id)
+        public async Task<ActionResult<UpdatePersonDto>> PutPeopleById([FromBody] UpdatePersonDto updatePerson, int id)
         {
             var result = await personService.UpdatePersonByIdAsync(updatePerson, id);
             return Ok();

@@ -14,5 +14,6 @@ namespace MissingPeople.Core.Dtos.Peoples
         public double DecimalLongitude { get; set; }
 
         public System.DateTime? DateOfDisappear {get; set;}
+        public bool IsWaiting { get; set; }
     }
 }

@@ -73,6 +73,7 @@ namespace MissingPeople.Core.Services.Peoples
                 YearOfBirth = entity.YearOfBirth,
                 Id = entity.Id,
                 Pictures = entity.Pictures.Select(s => s.Name),
+                IsWaiting = entity.IsWaiting
                 
             };
             return person;
@@ -137,7 +138,8 @@ namespace MissingPeople.Core.Services.Peoples
                     Description = entity.DangerOfLife.Description,
                     DecimalLatitude = entity.DictCity != null ? entity.DictCity.DecimalLatitude : 0,
                     DecimalLongitude = entity.DictCity != null ? entity.DictCity.DecimalLongitude : 0,
-                    DateOfDisappear = entity.DateOfDisappear
+                    DateOfDisappear = entity.DateOfDisappear,
+                    IsWaiting = entity.IsWaiting
                 };
 
                 models.Add(person);
@@ -164,6 +166,7 @@ namespace MissingPeople.Core.Services.Peoples
             entity.DangerOfLife.IsAtRisk = updatingPerson.IsAtRisk;
             entity.PersonDetail.OtherDetails = updatingPerson.OtherDetails;
             entity.DangerOfLife.Description = updatingPerson.RiskDescription;
+            entity.IsWaiting = updatingPerson.IsWaiting;
 
             await repositoryPerson.UpdateAsync(entity);
             return entity;
@@ -176,7 +179,7 @@ namespace MissingPeople.Core.Services.Peoples
         {
             createPersonDto.IsAtRisk = false;
             createPersonDto.IsWaiting = true;
-            var person =  new Person {
+            var person = new Person {
                 Name = createPersonDto.Name,
                 Surname = createPersonDto.Surname,
                 SecondName = createPersonDto.SecondName,

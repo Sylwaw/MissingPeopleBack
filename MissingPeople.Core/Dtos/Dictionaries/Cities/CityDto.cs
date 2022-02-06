@@ -6,5 +6,6 @@ namespace MissingPeople.Core.Dtos.Dictionaries.Cities
         public string Name { get; set; }
         public double DecimalLatitude { get; set; }
         public double DecimalLongitude { get; set; }
+        //public string ProvinceName { get; set; }
     }
 }

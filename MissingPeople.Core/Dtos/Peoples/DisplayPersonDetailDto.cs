@@ -32,5 +32,6 @@ namespace MissingPeople.Core.Dtos.Peoples
         {
             this.Pictures = new List<string>();
         }
+        public bool IsWaiting { get; set; }
     }
 }

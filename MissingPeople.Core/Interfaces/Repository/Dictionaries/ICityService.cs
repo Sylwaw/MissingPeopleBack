@@ -15,5 +15,7 @@ namespace MissingPeople.Core.Interfaces.Dictionaries
         Task<CityDto> GetCityByName(string nameCity);
 
         Task<CityDto> GetCityByID(int id);
+
+        Task<CityDto> GetCityByNameAndProvince(string provinceName);
     }
 }

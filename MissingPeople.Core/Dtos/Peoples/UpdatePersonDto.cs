@@ -13,5 +13,6 @@ namespace MissingPeople.Core.Dtos.Peoples
         public bool IsAtRisk { get; set; }
         public string RiskDescription { get; set; }
         public string OtherDetails { get; set; }
+        public bool IsWaiting { get; set; }
     }
 }
