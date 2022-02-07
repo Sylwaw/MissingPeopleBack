@@ -26,6 +26,7 @@ namespace MissingPeople.Core.Dtos.Peoples
         public bool IsAtRisk { get; set; }
         public string Description { get; set; }
         public int DictCityID { get; set; }
+        public bool IsWaiting { get; set; }
         
 
         //public string Picture { get; set; }

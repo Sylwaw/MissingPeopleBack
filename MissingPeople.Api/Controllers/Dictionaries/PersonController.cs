@@ -14,7 +14,7 @@ using MissingPeople.Core.Extensions;
 
 namespace MissingPeople.Api.Controllers.Dictionaries
 {
-    
+
     [Route("api/[controller]")]
     [ApiController]
     public class PersonController : ControllerBase
@@ -22,7 +22,8 @@ namespace MissingPeople.Api.Controllers.Dictionaries
         private readonly IPersonService personService;
         private readonly IPersonDetailService personDetailService;
         private readonly IDangerOfLifeService dangerOfLifeService;
-        private const int PERSON_PER_PAGE = 1200; // liczba wyswietlanych osob na stronie
+        private const int PERSON_PER_
+            = 1200; // liczba wyswietlanych osob na stronie
 
         public PersonController(IPersonService personService, IPersonDetailService personDetailService, IDangerOfLifeService dangerOfLifeService)
         {
@@ -31,21 +32,22 @@ namespace MissingPeople.Api.Controllers.Dictionaries
             this.personDetailService = personDetailService;
         }
 
-        [HttpGet("peopleByID")]
+        [HttpGet("peopleByID/{id}")]
         public async Task<ActionResult<DisplayPersonDetailDto>> GetPeopleByID(int id)
         {
-            return new JsonResult(await personService.GetPersonByIdAsync(id)); 
+            return new JsonResult(await personService.GetPersonByIdAsync(id));
         }
 
+
         [HttpGet("getAllPeople")]
-        public async Task<ActionResult<DisplayPersonDto>> GetAllPeople(int page)
+        public async Task<ActionResult<DisplayPersonDto>> GetAllPeople()
         {
-            var result = new JsonResult(await personService.GetPersonsAsync(page, PERSON_PER_PAGE));
+            var result = new JsonResult(await personService.GetPersonsAsync());
             return result;
         }
 
         [HttpPut("updatePerson")]
-        public async Task<ActionResult<UpdatePersonDto>> PutPeopleById(UpdatePersonDto updatePerson, int id)
+        public async Task<ActionResult<UpdatePersonDto>> PutPeopleById([FromBody] UpdatePersonDto updatePerson, int id)
         {
             var result = await personService.UpdatePersonByIdAsync(updatePerson, id);
             return Ok();
@@ -59,7 +61,7 @@ namespace MissingPeople.Api.Controllers.Dictionaries
         }
 
         [HttpPost("createPerson")]
-        public async Task<IActionResult> PostPerson(CreatePersonDto createPersonDto)
+        public async Task<IActionResult> PostPerson([FromBody] CreatePersonDto createPersonDto)
         {
             var person = await personService.AddPerson(createPersonDto);
 

@@ -6,6 +6,8 @@ using MissingPeople.Core.Interfaces.Dictionaries;
 
 namespace MissingPeople.Api.Controllers.Dictionaries
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class CityController:Controller
     {
         private readonly ICityService cityService;
@@ -23,10 +25,11 @@ namespace MissingPeople.Api.Controllers.Dictionaries
         }
 
         //zwraca id miasta po nazwie
-        [HttpGet("cityByName")]
+        [HttpGet("cityByName/{value}")]
         public async Task<ActionResult<CityDto>> GetCityByName(string value)
         {
-            return new JsonResult(await cityService.GetCityByName(value));
+            var city = value.ToLower();
+            return new JsonResult(await cityService.GetCityByName(city));
         }
 
         [HttpGet("cityById")]
@@ -34,5 +37,12 @@ namespace MissingPeople.Api.Controllers.Dictionaries
         {
             return new JsonResult(await cityService.GetCityByID(id));
         }
+
+        [HttpGet("cityByNameAndProvince")]
+        public async Task<ActionResult<CityDto>> GetCityByNameAndProvince(string province)
+        {
+            return new JsonResult(await cityService.GetCityByNameAndProvince(province));
+        }
+
     }
 }

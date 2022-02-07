@@ -30,15 +30,40 @@ namespace MissingPeople.Core.Services.Dictionaries
 
         public async Task<CityDto> GetCityByName(string nameCity)
         {
-            var city = await repository.GetByFunc(s => s.Name == nameCity).FirstOrDefaultAsync();
-
+            var city = await repository.GetByFunc(s => s.Name.ToLower() == nameCity).FirstOrDefaultAsync();
             return mapper.Map<CityDto>(city);
         }
 
         public async Task<CityDto> GetCityByID(int id)
         {
-            var city = await repository.GetByFunc(s => s.Id == id).FirstOrDefaultAsync(); 
+            var city = await repository.GetByFunc(s => s.Id == id).FirstOrDefaultAsync();
             return mapper.Map<CityDto>(city);
         }
+    //    public async Task<CityDto> GetCityByID(int id)
+    //    {
+    //        var entity = await repository.GetByFunc(s => s.Id == id).Include(s => s.Provinces).FirstOrDefaultAsync();
+
+    //        var city = new CityDto
+    //        {
+    //            Id = entity.Id,
+    //            Name = entity.Name,
+    //            DecimalLatitude = entity.DecimalLatitude,
+    //            DecimalLongitude = entity.DecimalLongitude,
+    //            ProvinceName = entity.Provinces.Name,
+    //};
+    //        return mapper.Map<CityDto>(city);
+    //    }
+
+        public async Task<CityDto> GetCityByNameAndProvince(string provinceName)
+        {
+            var city = await repository.GetByFunc(s => s.Provinces.Name.ToLower() == provinceName).FirstOrDefaultAsync();
+
+            return mapper.Map<CityDto>(city);
+        }
+
+
+
+
+
     }
 }
