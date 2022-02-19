@@ -26,7 +26,7 @@ namespace MissingPeople.Infrastructure.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseNpgsql("User ID=Sylwia; Password=sylwia123; Host=127.0.0.1; Port=5432; Database=MissingPeopleBaseNew2; Pooling=true;");
+            options.UseNpgsql("User ID=Sylwia; Password=sylwia123; Host=127.0.0.1; Port=5432; Database=MissingPeopleBase; Pooling=true;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -35,6 +35,7 @@ namespace MissingPeople.Infrastructure.Data
             new PersonConfiguration(modelBuilder.Entity<Person>());
             modelBuilder.Entity<DangerOfLife>().Property(s => s.Id).ValueGeneratedOnAdd().HasIdentityOptions(1274);
             modelBuilder.Entity<PersonDetail>().Property(s => s.Id).ValueGeneratedOnAdd().HasIdentityOptions(1274);
+            modelBuilder.Entity<Picture>().Property(s => s.Id).ValueGeneratedOnAdd().HasIdentityOptions(1274);
         }
     }
 }

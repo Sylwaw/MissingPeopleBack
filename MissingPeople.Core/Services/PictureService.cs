@@ -1,3 +1,4 @@
+using System;
 using System.Drawing;
 using System.Threading.Tasks;
 using MissingPeople.Core.Extensions;
@@ -10,11 +11,12 @@ namespace MissingPeople.Core.Services
     {
         public string GetPictureBase64ByName(string name)
         {
-            var picture = Image.FromFile($"C:/Users/Sylwia/Desktop/MOJE/STUDIA/MissingPeopleBack/foto//{name}");
-            return picture.ImageToBase64();
+            var picture = Image.FromFile($"C:/Users/Sylwia/Desktop/MOJE/STUDIA/MissingPeopleBack/MissingPeople.Api/Resources/Images/{name}");
+            var pictureString = picture.ImageToBase64();
+            return pictureString;
         }
 
-        //Picture service 1 
+        
 
     }
 }

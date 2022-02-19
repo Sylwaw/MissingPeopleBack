@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MissingPeople.Core.Entities.Dictionaries;
 
@@ -12,7 +13,11 @@ namespace MissingPeople.Core.Entities.Peoples
     {
         public string Name { get; set; }
         public string SecondName { get; set; }
+        [Required(ErrorMessage = "Nazwisko jest wymagane")]
+        [MinLength(3)]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z'\s]*$")]
         public string Surname { get; set; }
+        [Range(191, 2022)]
         public int YearOfBirth { get; set; }
         public bool IsWaiting { get; set; }
         public DateTime? DateOfDisappear { get; set; }

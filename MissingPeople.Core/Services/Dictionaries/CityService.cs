@@ -24,13 +24,12 @@ namespace MissingPeople.Core.Services.Dictionaries
         public async Task<IEnumerable<CityDto>> GetCitiesByIncludeSourceAsync(string value)
         {
             var cities = repository.GetByFunc(s => s.Name.ToLower().StartsWith(value.ToLower()));
-
             return mapper.Map<IEnumerable<CityDto>>(await cities.ToListAsync());
         }
 
         public async Task<CityDto> GetCityByName(string nameCity)
         {
-            var city = await repository.GetByFunc(s => s.Name.ToLower() == nameCity).FirstOrDefaultAsync();
+            var city = await repository.GetByFunc(s => s.Name.ToLower() == nameCity.ToLower()).FirstOrDefaultAsync();
             return mapper.Map<CityDto>(city);
         }
 
@@ -39,20 +38,7 @@ namespace MissingPeople.Core.Services.Dictionaries
             var city = await repository.GetByFunc(s => s.Id == id).FirstOrDefaultAsync();
             return mapper.Map<CityDto>(city);
         }
-    //    public async Task<CityDto> GetCityByID(int id)
-    //    {
-    //        var entity = await repository.GetByFunc(s => s.Id == id).Include(s => s.Provinces).FirstOrDefaultAsync();
-
-    //        var city = new CityDto
-    //        {
-    //            Id = entity.Id,
-    //            Name = entity.Name,
-    //            DecimalLatitude = entity.DecimalLatitude,
-    //            DecimalLongitude = entity.DecimalLongitude,
-    //            ProvinceName = entity.Provinces.Name,
-    //};
-    //        return mapper.Map<CityDto>(city);
-    //    }
+    
 
         public async Task<CityDto> GetCityByNameAndProvince(string provinceName)
         {

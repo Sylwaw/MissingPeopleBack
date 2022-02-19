@@ -46,14 +46,14 @@ namespace MissingPeople.Api.Controllers.Dictionaries
             return result;
         }
 
-        [HttpPut("updatePerson")]
+        [HttpPut("updatePerson/{id}")]
         public async Task<ActionResult<UpdatePersonDto>> PutPeopleById([FromBody] UpdatePersonDto updatePerson, int id)
         {
             var result = await personService.UpdatePersonByIdAsync(updatePerson, id);
             return Ok();
         }
 
-        [HttpDelete("deletePerson")]
+        [HttpDelete("deletePerson/{id}")]
         public async Task<IActionResult> DeletePeopleById(int id)
         {
             await personService.DeletePerson(id);
@@ -63,9 +63,13 @@ namespace MissingPeople.Api.Controllers.Dictionaries
         [HttpPost("createPerson")]
         public async Task<IActionResult> PostPerson([FromBody] CreatePersonDto createPersonDto)
         {
-            var person = await personService.AddPerson(createPersonDto);
+            if (ModelState.IsValid)
+            {
+                var person = await personService.AddPerson(createPersonDto);
+                return new JsonResult(person.Id);
+            }
 
-            return new JsonResult(person.Id);
+            return Ok();
         }
 
 

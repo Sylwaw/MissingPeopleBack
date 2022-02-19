@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="NewFolder1\**" />
+    <Content Remove="NewFolder1\**" />
+    <EmbeddedResource Remove="NewFolder1\**" />
+    <None Remove="NewFolder1\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Controllers\DetailsController.cs" />
     <Compile Remove="Controllers\ValuesController.cs" />
   </ItemGroup>
@@ -28,6 +35,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MissingPeople.Infrastructure\MissingPeople.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Images\" />
   </ItemGroup>
 
 </Project>

@@ -21,6 +21,7 @@ namespace MissingPeople.Core.Services.Peoples
         private readonly IRepositoryBase<Person> repositoryPerson;
         private readonly IRepositoryBase<DangerOfLife> repositoryDangersOfLife;
         private readonly IRepositoryBase<PersonDetail> repositoryPersonDetail;
+        private readonly IRepositoryBase<Picture> repositoryPicture;
         private readonly ICityService cityService;
         private readonly IPictureService pictureService;
         private readonly IMapper mapper;
@@ -52,13 +53,12 @@ namespace MissingPeople.Core.Services.Peoples
 
             var person = new DisplayPersonDetailDto
             {
-                //nie mo¿na zaci¹gn¹æ z pustego obiektu
+                //sprawdzenie, czy obiekt nie jest NULL
                 City = entity.DictCity != null ? entity.DictCity.Name : "",
                 Eyes = entity.DictEye != null ? entity.DictEye.Name : "",
                 Name = entity.Name,
                 SecondName = entity.SecondName,
                 Surname = entity.Surname,
-                //Detail = new PersonDetailDto(entity.PersonDetail),
                 HeightFrom = entity.PersonDetail.HeightFrom,
                 HeightTo = entity.PersonDetail.HeightFrom,
                 WeightFrom = entity.PersonDetail.WeightFrom,
@@ -73,43 +73,14 @@ namespace MissingPeople.Core.Services.Peoples
                 YearOfBirth = entity.YearOfBirth,
                 Id = entity.Id,
                 Pictures = entity.Pictures.Select(s => s.Name),
-                IsWaiting = entity.IsWaiting
-                
+                IsWaiting = entity.IsWaiting   
             };
+            if (person == null)
+            {
+                throw new NullReferenceException();
+            }
             return person;
         }
-
-        //public async Task<IEnumerable<DisplayPersonDto>> GetPersonsAsync(int page, int personPerPage)
-        //{
-
-        //    var entities = repositoryPerson.GetAll()
-        //         .Include(s => s.DictCity)
-        //         .Include(s => s.Pictures.Take(1))
-        //         .Skip(page * personPerPage)
-        //         .Take(personPerPage);
-
-        //    var persons = await entities.ToListAsync();
-
-        //    ICollection<DisplayPersonDto> models = new List<DisplayPersonDto>();
-
-        //    foreach (var entity in persons)
-        //    {
-        //        var person = new DisplayPersonDto
-        //        {
-        //            Id = entity.Id,
-        //            YearOfBirth = entity.YearOfBirth,
-        //            City = entity.DictCity != null ? entity.DictCity.Name : "",
-        //            Name = entity.Name,
-        //            Surname = entity.Surname,
-        //            //Picture = pictureService.GetPictureBase64ByName(entity.Pictures.FirstOrDefault().Name)
-        //            Picture = entity.Pictures.FirstOrDefault().Name
-        //        };
-
-        //        models.Add(person);
-        //    }
-
-        //    return models;
-        //}
 
         public async Task<IEnumerable<DisplayPersonDto>> GetPersonsAsync()
         {
@@ -132,7 +103,6 @@ namespace MissingPeople.Core.Services.Peoples
                     City = entity.DictCity != null ? entity.DictCity.Name : "",
                     Name = entity.Name,
                     Surname = entity.Surname,
-                    //Picture = pictureService.GetPictureBase64ByName(entity.Pictures.FirstOrDefault().Name)
                     Picture = entity.Pictures.Count() != 0 ? entity.Pictures.FirstOrDefault().Name : "",
                     IsAtRisk = entity.DangerOfLife.IsAtRisk,
                     Description = entity.DangerOfLife.Description,
@@ -162,30 +132,40 @@ namespace MissingPeople.Core.Services.Peoples
             {
                 entity.DictCityID = city.Id;
             }
-
+            
             entity.DangerOfLife.IsAtRisk = updatingPerson.IsAtRisk;
-            entity.PersonDetail.OtherDetails = updatingPerson.OtherDetails;
+            if(updatingPerson.OtherDetails.Length != 0)
+            {
+                entity.PersonDetail.OtherDetails = entity.PersonDetail.OtherDetails + ", " + updatingPerson.OtherDetails;
+            }
+            
             entity.DangerOfLife.Description = updatingPerson.RiskDescription;
             entity.IsWaiting = updatingPerson.IsWaiting;
 
             await repositoryPerson.UpdateAsync(entity);
             return entity;
-
-
         }
 
 
         public async Task<Person> AddPerson(CreatePersonDto createPersonDto)
         {
-            createPersonDto.IsAtRisk = false;
+
+            var city = await cityService.GetCityByName(createPersonDto.DictCity);
+
+            if (city == null)
+                throw new ArgumentNullException("Nie znaleziono miasta");
+
+            var picturesTMP = new List<Picture>();
+
+
             createPersonDto.IsWaiting = true;
             var person = new Person {
                 Name = createPersonDto.Name,
                 Surname = createPersonDto.Surname,
                 SecondName = createPersonDto.SecondName,
                 YearOfBirth = createPersonDto.YearOfBirth,
-                DateOfDisappear = createPersonDto.DateOfDissapear,
-                DictCityID = createPersonDto.DictCityID,
+                DateOfDisappear = createPersonDto.DateOfDisappear,
+                DictCityID = city.Id,
                 DictEyeID = createPersonDto.DictEyeID,
                 IsWaiting = createPersonDto.IsWaiting,
                 PersonDetail = new()
@@ -204,25 +184,33 @@ namespace MissingPeople.Core.Services.Peoples
                 {
                     IsAtRisk = createPersonDto.IsAtRisk,
                     Description = createPersonDto.Description
-                }
+                },
+              
+                Pictures = picturesTMP
             };
 
+            foreach (var item in createPersonDto.Pictures)
+            {
+                Picture picture = new Picture()
+                {
+                    Name = item,
+                    Person = person
+                };
+
+                picturesTMP.Add(picture);
+            }
+
             
-
-            //jak nie przypisujê rêcznie id to sa 0!!!!
+                await repositoryPerson.CreateAsync(person);
+                return person;
             
-
-
-            await repositoryPerson.CreateAsync(person);
-            return person;
+            
         }
 
-        //mo¿na to zrobiæ w inny sposób - cascade delete fluent API, EF domyœlnie usuwa tabele, które s¹ w relacji 1:1
+        //EF domyœlnie usuwa tabele, które s¹ w relacji 1:1
         public async Task DeletePerson(int personId)
         {
             var person = await repositoryPerson.GetByFunc(s => s.Id == personId).Include(s => s.DangerOfLife).FirstOrDefaultAsync();
-            //var details = await repositoryPersonDetail.GetByIdAsync(person.PersonDetail.Id);
-
             await repositoryPerson.DeleteAsync(person);
 
         }
