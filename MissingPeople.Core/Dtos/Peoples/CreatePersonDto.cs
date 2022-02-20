@@ -13,8 +13,6 @@ namespace MissingPeople.Core.Dtos.Peoples
         [MinLength(3)]
         [RegularExpression(@"^[A-Z]+[a-zA-Z'\s]*$")]
         public string Name { get; set; }
-        [MinLength(3)]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z'\s]*$")]
         public string SecondName { get; set; }
         [Required(ErrorMessage = "Nazwisko jest wymagane")]
         [MinLength(3)]
