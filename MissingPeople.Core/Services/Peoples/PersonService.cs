@@ -134,9 +134,13 @@ namespace MissingPeople.Core.Services.Peoples
             }
             
             entity.DangerOfLife.IsAtRisk = updatingPerson.IsAtRisk;
-            if(updatingPerson.OtherDetails.Length != 0)
+            if(entity.PersonDetail?.OtherDetails != null && entity.PersonDetail?.OtherDetails?.Length != 0 && updatingPerson.OtherDetails.Length != 0)
             {
                 entity.PersonDetail.OtherDetails = entity.PersonDetail.OtherDetails + ", " + updatingPerson.OtherDetails;
+            }
+            else if(updatingPerson.OtherDetails.Length != 0)
+            {
+                entity.PersonDetail.OtherDetails =  updatingPerson.OtherDetails;
             }
             
             entity.DangerOfLife.Description = updatingPerson.RiskDescription;
